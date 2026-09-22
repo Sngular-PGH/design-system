@@ -1,5 +1,7 @@
 # Sngular Design System + Skill
 
+Repositorio: https://github.com/Sngular-PGH/design-system
+
 Repositorio del sistema de diseño de Sngular (presentaciones, web y apps) y de la skill de Claude que lo aplica.
 
 | Carpeta | Contenido |
@@ -37,3 +39,8 @@ Componentes: carga React 18, `design-system/components/bundle.css` y `design-sys
 - Outfit: SIL Open Font License 1.1 (`design-system/fonts/OFL.txt`).
 - Iconos: Google Material Symbols (Apache 2.0).
 - Logos y marca: © Sngular. Uso interno según el Brand Book.
+
+## Actualizar desde el Design System
+
+1. Exporta los archivos del artefacto a `design-system/` y, si cambias la skill, vuelve a empaquetarla en `dist/`.
+2. Crea un commit y haz `git push`.
