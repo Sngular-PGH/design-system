@@ -1,0 +1,65 @@
+/* Sngular Design System — tokens.css (generado desde tokens.json). Tema único: light. */
+@font-face { font-family: 'Outfit'; src: url('fonts/Outfit-VariableFont_wght.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
+:root {
+  --navy: #061b2b;
+  --navy-light: #f2f3f4;
+  --white: #ffffff;
+  --blue: #0070f6;
+  --purple: #9747ff;
+  --green: #b3e500;
+  --red: #ff0059;
+  --surface: var(--white);
+  --surface-alt: var(--navy-light);
+  --surface-inverse: var(--navy);
+  --ink: var(--navy);
+  --ink-muted: #061b2bb3;
+  --ink-inverse: var(--white);
+  --line: #061b2b29;
+  --line-strong: #061b2b8f;
+  --accent: var(--blue);
+  --on-accent: var(--white);
+  --focus: var(--blue);
+  --danger: var(--red);
+  --success: #3d7a00;
+  --chart-violet: #8a04ff;
+  --chart-bolt: #1216ef;
+  --chart-sky: #00c3f8;
+  --chart-mint: #00ddb1;
+  --chart-lime: #00e013;
+  --chart-sun: #f7df00;
+  --chart-coral: #ff6f41;
+  --chart-magenta: #e527a6;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --slide-margin-x: 96px;
+  --slide-margin-y: 144px;
+  --radius-none: 0;
+  --radius-xs: 2px;
+  --radius-full: 9999px;
+  --logo-min-solid: 24px;
+  --logo-min-color: 36px;
+  --cursor-text: 5px;
+  --cursor-image: 20px;
+  --font-sans: "Outfit", Verdana, Geneva, sans-serif;
+  --font-aux: Verdana, Geneva, sans-serif;
+  --font-icons: "Material Symbols Outlined";
+}
+.display-1 { font-family: var(--font-sans); font-size: 92px; line-height: 98px; font-weight: 600; letter-spacing: 0; }
+.display-2 { font-family: var(--font-sans); font-size: 65px; line-height: 70px; font-weight: 600; letter-spacing: 0; }
+.display-2-regular { font-family: var(--font-sans); font-size: 65px; line-height: 70px; font-weight: 400; letter-spacing: 0; }
+.heading-1 { font-family: var(--font-sans); font-size: 48px; line-height: 52px; font-weight: 600; letter-spacing: 0; }
+.heading-1-light { font-family: var(--font-sans); font-size: 48px; line-height: 52px; font-weight: 300; letter-spacing: 0; }
+.heading-2 { font-family: var(--font-sans); font-size: 32px; line-height: 38px; font-weight: 400; letter-spacing: 0; }
+.heading-3 { font-family: var(--font-sans); font-size: 22px; line-height: 30px; font-weight: 600; letter-spacing: 0; }
+.paragraph-big { font-family: var(--font-sans); font-size: 24px; line-height: 36px; font-weight: 400; letter-spacing: 0; }
+.paragraph { font-family: var(--font-sans); font-size: 20px; line-height: 30px; font-weight: 400; letter-spacing: 0; }
+.overline { font-family: var(--font-sans); font-size: 18px; line-height: 24px; font-weight: 600; letter-spacing: 0; text-transform: uppercase; }
+.auxiliary { font-family: var(--font-sans); font-size: 14px; line-height: 24px; font-weight: 300; letter-spacing: 0; }
+.ui-body { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 400; letter-spacing: 0; }
+.ui-label { font-family: var(--font-sans); font-size: 16px; line-height: 24px; font-weight: 600; letter-spacing: 0; }
+.ui-caption { font-family: var(--font-sans); font-size: 13px; line-height: 18px; font-weight: 400; letter-spacing: 0; }

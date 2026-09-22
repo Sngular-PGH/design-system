@@ -1,0 +1,47 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Sngular</title>
+<style>
+  html, body { margin:0; height:100%; }
+  body { background:var(--surface); color:var(--ink); font-family:var(--font-sans); overflow:hidden; }
+  .cover { position:relative; height:288px; overflow:hidden; }
+  .art { position:absolute; top:0; left:480px; width:480px; height:288px; overflow:hidden; }
+  .art svg { display:block; width:480px; height:288px; }
+  .glyph { fill:var(--navy); font-family:var(--font-sans); font-weight:600; font-size:360px; }
+  .cursor { fill:var(--blue); }
+  .panel { fill:var(--navy-light); }
+  .deep { fill:var(--navy); }
+  .acc { fill:var(--green); }
+  .sq { rx:var(--radius-none); }
+  .words { position:absolute; left:var(--space-6); bottom:var(--space-6); max-width:440px; }
+  .name { margin:0; font-size:104px; line-height:.92; font-weight:600; letter-spacing:0; color:var(--ink); }
+  .tag { margin:var(--space-2) 0 0 4px; font-size:14px; line-height:20px; color:var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+<div class="art" aria-hidden="true">
+<svg viewBox="0 0 480 288" width="480" height="288">
+<!--
+  blocks      navy-light panel 328×288 bleeding top and bottom (the brand's relief ground) · blue cursor slab 24×288 (the identity hue, cursor-image) · navy block 168×112 bleeding right and bottom · green 32×8 once (secondary accent, 5%) — ≈45% of 960×288
+  arrangement one tall cursor slab with the panel behind it, the navy block as satellite in the panel corner, as in the brand book page "La S"
+  pattern     oversized glyph: the Outfit SemiBold "S" in navy, hidden behind the cursor and cut by the panel ("S Navy escondida tras cursor")
+  scales      sides in space-2 (8px) multiples; slab width space-4 (24px); gaps space-6 (48px); corners radius-none (square brand)
+-->
+<text class="glyph" x="8" y="274">S</text>
+<rect class="cursor sq" x="128" y="0" width="24" height="288"/>
+<rect class="panel sq" x="152" y="0" width="328" height="288"/>
+<rect class="deep sq" x="312" y="176" width="168" height="112"/>
+<rect class="acc sq" x="200" y="232" width="32" height="8"/>
+</svg>
+</div>
+<div class="words">
+<h1 class="name">Sngular</h1>
+<p class="tag">El cursor es una idea que quiere ser grande.</p>
+</div>
+</div>
+</body>
+</html>

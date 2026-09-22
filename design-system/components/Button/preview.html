@@ -1,0 +1,19 @@
+<!-- @dsCard group="Actions" height=150 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Button — preview</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300..400,0..1,0"></head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Sngular, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h('div',{className:'sg-row'},
+  h(S.Button,{variant:'primary',icon:'arrow_forward'},'Contact us'),
+  h(S.Button,{variant:'secondary'},'Services'),
+  h(S.Button,{variant:'ghost',icon:'arrow_forward'},'Know more'),
+  h(S.Button,{variant:'primary',disabled:true},'Send')),
+h('div',{className:'sg-row sg-navy'},
+  h(S.Button,{variant:'primary',onNavy:true},'We can help'),
+  h(S.Button,{variant:'secondary',onNavy:true},'Grow your career'))));
+</script>
+</body>
+</html>

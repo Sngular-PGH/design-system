@@ -1,0 +1,8 @@
+{
+  "skill_name": "sngular-design",
+  "evals": [
+    {"id": 1, "prompt": "Hazme una presentación de 8 slides para presentar Sngular a un banco mediano que quiere lanzar una app de banca digital. En español.", "expected_output": "Deck 16:9 con el Design System de Sngular: portada navy, pregunta provocadora, caso B100 (Challenge/Solution/Results), cifras con fecha, pilares, cierre con business@sngular.com. Un solo título especial, 1–2 resaltados, área segura, sin colores secundarios en textos.", "files": []},
+    {"id": 2, "prompt": "Create a landing page for our Data & AI services, in English, with a contact form.", "expected_output": "Landing en tema claro: hero con Highlight o SpecialTitle, Stat, tarjetas de servicio, caso con testimonio, formulario con etiquetas visibles, botón primario blue recto, pie navy con logotipo negativo.", "files": []},
+    {"id": 3, "prompt": "Revisa esta slide: título en verde sobre blanco, tres cajas moradas con párrafos y el logo estirado. ¿Cumple la marca?", "expected_output": "Detecta las 3 infracciones (acento en título, cajas de acento con texto, logo deformado), cita la regla y el contraste, y propone la corrección con tokens del sistema.", "files": []}
+  ]
+}

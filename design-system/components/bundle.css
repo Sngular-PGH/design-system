@@ -1,0 +1,94 @@
+/* Sngular — component styles. Tokens come from tokens.css. */
+body { margin: 0; font-family: var(--font-sans); background: var(--surface); color: var(--ink); -webkit-font-smoothing: antialiased; }
+.sg-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; padding: var(--space-4); }
+.sg-stack { display: flex; flex-direction: column; gap: var(--space-4); padding: var(--space-4); }
+.sg-navy { background: var(--surface-inverse); color: var(--ink-inverse); }
+.sg-alt { background: var(--surface-alt); }
+.sg-danger { color: var(--danger); }
+.sg-accent { color: var(--accent); }
+p, h1, h2, h3 { margin: 0; }
+
+/* Logo */
+.sg-logo { display: block; flex: none; }
+
+/* Cursor */
+.sg-cursor { display: inline-block; flex: none; background: var(--accent); align-self: stretch; }
+.sg-cursor-text { width: var(--cursor-text); min-height: 1.25em; }
+.sg-cursor-image { width: var(--cursor-image); min-height: 48px; }
+
+/* CursorText */
+.sg-cursortext { display: flex; gap: var(--space-3); align-items: flex-start; max-width: 40em; }
+.sg-cursortext .sg-cursor { align-self: auto; height: 1.5em; margin-top: 0.15em; }
+.sg-cursortext-body { color: var(--ink); }
+.sg-cursortext.sg-on-navy .sg-cursortext-body { color: var(--ink-inverse); }
+
+/* Highlight: texto seleccionado */
+.sg-hl { background: var(--accent); color: var(--on-accent); padding: 0 0.12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* SpecialTitle */
+.sg-st { display: flex; align-items: stretch; gap: var(--space-2); }
+.sg-st .sg-logo { align-self: center; }
+.sg-st-box { background: var(--accent); color: var(--on-accent); padding: var(--space-2) var(--space-4); display: inline-block; }
+.sg-st-label .sg-st-box { padding: var(--space-1) var(--space-3); }
+
+/* BigS */
+.sg-bigs { position: relative; display: flex; align-items: center; overflow: hidden; }
+.sg-bigs-s { display: block; flex: none; position: relative; }
+.sg-bigs-bar { display: block; flex: none; width: var(--cursor-image); align-self: stretch; background: var(--accent); position: relative; z-index: 1; }
+.sg-bigs-panel { display: block; flex: 1 1 auto; align-self: stretch; background: var(--surface-alt); position: relative; z-index: 1; min-width: 40%; }
+.sg-bigs.sg-on-navy .sg-bigs-panel { background: var(--navy); }
+
+/* Overline */
+.sg-overline { text-transform: uppercase; color: var(--ink); }
+.sg-overline.sg-accent { color: var(--accent); }
+.sg-overline.sg-on-navy { color: var(--ink-inverse); }
+
+/* Icon: Material Symbols Outlined */
+.sg-icon { font-family: var(--font-icons); font-weight: normal; font-style: normal; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; }
+
+/* Button (derivado de sngular.com): recto, Outfit SemiBold */
+.sg-btn { font-family: var(--font-sans); font-weight: 600; font-size: 16px; line-height: 24px; display: inline-flex; align-items: center; gap: var(--space-2); border: 2px solid transparent; border-radius: var(--radius-none); cursor: pointer; text-decoration: none; transition: background-color .15s, color .15s, border-color .15s; }
+.sg-btn-md { height: 48px; padding: 0 var(--space-4); }
+.sg-btn-lg { height: 56px; padding: 0 var(--space-5); font-size: 18px; }
+.sg-btn-primary { background: var(--accent); color: var(--on-accent); }
+.sg-btn-primary:hover { background: var(--navy); }
+.sg-btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink); }
+.sg-btn-secondary:hover { background: var(--surface-alt); }
+.sg-btn-ghost { background: transparent; color: var(--accent); padding-left: 0; padding-right: 0; }
+.sg-btn-ghost:hover span { text-decoration: underline; text-underline-offset: 4px; }
+.sg-btn.sg-on-navy.sg-btn-primary:hover { background: var(--white); color: var(--navy); }
+.sg-btn.sg-on-navy.sg-btn-secondary { color: var(--ink-inverse); border-color: var(--ink-inverse); }
+.sg-btn.sg-on-navy.sg-btn-secondary:hover { background: var(--white); color: var(--navy); }
+.sg-btn.sg-on-navy.sg-btn-ghost { color: var(--ink-inverse); }
+.sg-btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+.sg-btn.sg-on-navy:focus-visible { outline-color: var(--white); }
+.sg-btn:disabled, .sg-btn[aria-disabled="true"] { background: var(--surface-alt); color: var(--ink-muted); border-color: transparent; cursor: not-allowed; }
+
+/* Input */
+.sg-field { display: flex; flex-direction: column; gap: var(--space-1); max-width: 360px; }
+.sg-field-label { font-family: var(--font-sans); font-weight: 600; font-size: 14px; line-height: 20px; color: var(--ink); }
+.sg-input { font-family: var(--font-sans); font-size: 16px; line-height: 24px; height: 48px; box-sizing: border-box; padding: 0 var(--space-3); border: 1px solid var(--line-strong); border-radius: var(--radius-none); background: var(--white); color: var(--ink); }
+.sg-input::placeholder { color: var(--ink-muted); }
+.sg-input:hover { border-color: var(--ink); }
+.sg-input:focus { outline: 2px solid var(--focus); outline-offset: 0; border-color: var(--focus); }
+.sg-field-hint { display: flex; align-items: center; gap: var(--space-1); font-size: 13px; line-height: 18px; color: var(--ink-muted); }
+.sg-field-error .sg-input { border-color: var(--danger); border-width: 2px; }
+.sg-field-error .sg-field-hint { color: var(--ink); }
+
+/* Stat */
+.sg-stat { display: flex; flex-direction: column; gap: var(--space-1); }
+.sg-stat-value { color: var(--accent); }
+.sg-stat-label { color: var(--ink); }
+.sg-stat-note { color: var(--ink-muted); }
+.sg-stat.sg-on-navy .sg-stat-value, .sg-stat.sg-on-navy .sg-stat-label, .sg-stat.sg-on-navy .sg-stat-note { color: var(--ink-inverse); }
+
+/* Card */
+.sg-card { display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius-none); overflow: hidden; color: var(--ink); text-decoration: none; max-width: 360px; }
+.sg-card-media { aspect-ratio: 16 / 10; background: var(--surface-alt); border-bottom: var(--cursor-text) solid var(--accent); }
+.sg-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sg-card-body { display: flex; flex-direction: column; gap: var(--space-2); padding: var(--space-4); }
+.sg-card-title { color: var(--ink); }
+.sg-card-text { color: var(--ink); }
+.sg-card-link { display: inline-flex; align-items: center; gap: var(--space-1); color: var(--accent); margin-top: var(--space-2); }
+.sg-card-link-wrap:hover .sg-card-title { text-decoration: underline; text-underline-offset: 4px; }
+.sg-card-link-wrap:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }

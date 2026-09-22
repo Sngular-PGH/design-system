@@ -1,0 +1,15 @@
+<!-- @dsCard group="Brand" height=200 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SpecialTitle — preview</title></head>
+<body>
+<div id="root"></div>
+<script>
+  var S = window.Sngular, h = React.createElement;
+  ReactDOM.createRoot(document.getElementById('root')).render(h(React.Fragment, null, h('div',{className:'sg-stack'},
+  h(S.SpecialTitle,{size:'label'},'Business Transformation'),
+  h(S.SpecialTitle,null,'A bold and dynamic title that grabs attention')),
+h('div',{className:'sg-stack sg-navy'}, h(S.SpecialTitle,{size:'label',onNavy:true},'Business Transformation'))));
+</script>
+</body>
+</html>
