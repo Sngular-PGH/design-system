@@ -1,8 +1,8 @@
 # Highlight
 
-Texto seleccionado por el cursor: fondo `blue` y texto `white` para resaltar una palabra o frase clave.
+Text selected by the cursor: `blue` background and `white` text to highlight a key word or phrase.
 
-- Máximo una o dos selecciones por composición; si se abusa, pierde intención.
-- Combina con `heading-1-light` en títulos o con `paragraph` en texto corrido.
-- La alternativa más discreta es Outfit Bold (700) dentro del párrafo.
-- Contraste white sobre blue: 4.52:1 (cumple AA).
+- Maximum one or two selections per composition; overuse loses its intent.
+- Combine with `heading-1-light` in titles or with `paragraph` in running text.
+- The more subtle alternative is Outfit Bold (700) within the paragraph.
+- White-on-blue contrast: 4.52:1 (meets AA).

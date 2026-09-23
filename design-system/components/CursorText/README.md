@@ -1,7 +1,7 @@
 # CursorText
 
-Un párrafo introducido por el cursor: el recurso para iniciar un texto destacado junto a una imagen o bajo un título.
+A paragraph introduced by the cursor: the resource for opening a featured text next to an image or under a title.
 
-- Úsalo para uno o dos párrafos clave por composición, no para todo el texto.
-- `big` usa `paragraph-big`, solo cuando acompaña a un titular display.
-- `onNavy` cambia el texto a white sobre fondo navy.
+- Use it for one or two key paragraphs per composition, not for all the text.
+- `big` uses `paragraph-big`, only when it accompanies a display headline.
+- `onNavy` switches the text to white on a navy background.

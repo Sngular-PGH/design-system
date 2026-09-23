@@ -1,7 +1,7 @@
 # Stat
 
-Cifra destacada con etiqueta y nota: la banda de números de sngular.com y las slides de dato grande.
+Featured figure with a label and note: the number band from sngular.com and the big-number slides.
 
-- Valor en `display-2` blue, etiqueta en `heading-3`, nota en `auxiliary`.
-- En fila de 3 a 4 cifras, sobre `surface` o `surface-alt`; con `onNavy` todo pasa a white.
-- Usa cifras reales y actualizadas del Purple Book o de la web.
+- Value in `display-2` blue, label in `heading-3`, note in `auxiliary`.
+- In a row of 3 to 4 figures, over `surface` or `surface-alt`; with `onNavy` everything switches to white.
+- Use real, up-to-date figures from the Purple Book or the website.

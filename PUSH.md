@@ -1,23 +1,23 @@
-# Subir este repositorio a GitHub
+# Pushing this repository to GitHub
 
-El remoto ya apunta a `https://github.com/Sngular-PGH/design-system.git`.
+The remote already points to `https://github.com/Sngular-PGH/design-system.git`.
 
-## Si el repositorio de GitHub está vacío
+## If the GitHub repository is empty
 
 ```bash
 cd sngular-design-system
 git push -u origin main
 ```
 
-## Si ya tiene contenido (README, licencia, etc.)
+## If it already has content (README, license, etc.)
 
 ```bash
 cd sngular-design-system
 git pull origin main --allow-unrelated-histories --no-rebase
-# resuelve los conflictos si aparecen (normalmente solo en README.md), y después:
+# resolve conflicts if they appear (usually only in README.md), then:
 git add . && git commit -m "Merge Sngular Design System v1"
 git push -u origin main
 ```
 
-Si la rama por defecto del repositorio se llama `master` en lugar de `main`, cambia `main` por `master` en los comandos.
-Si prefieres revisarlo antes, sube una rama: `git checkout -b design-system-v1 && git push -u origin design-system-v1` y abre un Pull Request.
+If the repository's default branch is called `master` instead of `main`, swap `main` for `master` in the commands above.
+If you'd rather review it first, push a branch: `git checkout -b design-system-v1 && git push -u origin design-system-v1` and open a Pull Request.

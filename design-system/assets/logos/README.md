@@ -1,11 +1,11 @@
 # Logos
 
-Archivos originales de Drive (Sngular_Basic Brand Assets 2025 › Brand shapes). Usa siempre estos archivos; nunca redibujes el logo.
+Original files from Drive (Sngular_Basic Brand Assets 2025 › Brand shapes). Always use these files; never redraw the logo.
 
-- `Logotype_Positive.svg`: navy + cursor blue. Sobre fondos claros. Mínimo 36px de alto.
-- `Logotype_Negative.svg`: white + cursor blue. Sobre navy o fotografía oscura. Mínimo 36px de alto.
-- `Logotype_Solid_Navy.svg`: todo navy. Tamaños pequeños (mínimo 24px) sobre claro.
-- `Logotype_Solid_White.svg`: todo white. Tamaños pequeños (mínimo 24px) sobre oscuro.
-- `Isotype_Positive.svg`, `Isotype_Negative.svg`, `Isotype_Solid_Navy.svg`, `Isotype_Solid_White.svg`: el símbolo `S|` en las mismas cuatro variantes. Para favicon, avatar, icono de app y esquina de slides.
+- `Logotype_Positive.svg`: navy + blue cursor. On light backgrounds. Minimum 36px tall.
+- `Logotype_Negative.svg`: white + blue cursor. On navy or dark photography. Minimum 36px tall.
+- `Logotype_Solid_Navy.svg`: all navy. Small sizes (minimum 24px) on light backgrounds.
+- `Logotype_Solid_White.svg`: all white. Small sizes (minimum 24px) on dark backgrounds.
+- `Isotype_Positive.svg`, `Isotype_Negative.svg`, `Isotype_Solid_Navy.svg`, `Isotype_Solid_White.svg`: the `S|` symbol in the same four variants. For favicon, avatar, app icon, and the corner of slides.
 
-Los colores van escritos en cada archivo: no se recolorean con CSS.
+Colors are baked into each file: they are not recolored with CSS.

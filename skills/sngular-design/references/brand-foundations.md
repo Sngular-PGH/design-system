@@ -1,144 +1,144 @@
-# Fundamentos de marca Sngular
+# Sngular brand foundations
 
-Copia de la guía del Sngular Design System (Brand Book 2025). Los valores exactos están en `../assets/tokens.json` y `../assets/tokens.css`.
+Copy of the Sngular Design System guide (2025 Brand Book). Exact values are in `../assets/tokens.json` and `../assets/tokens.css`.
 
-> Prioridad de uso: 1) presentaciones, 2) sitios web, 3) apps. Idiomas: español e inglés. Tema: solo claro (Light). Accesibilidad: WCAG 2.1 AA.
+> Usage priority: 1) presentations, 2) websites, 3) apps. Languages: Spanish and English. Theme: light only. Accessibility: WCAG 2.1 AA.
 
-## Concepto: el cursor
+## Concept: the cursor
 
-Un cursor que titila es una invitación: *crea, escribe*. **El cursor es una idea que quiere ser grande**, y Sngular es la base tecnológica que la hace realidad. Por eso la **S** siempre aparece junto a un **cursor** (`S|`). El cursor es el elemento dinámico, transformador y de énfasis de toda la marca: inicia un subtítulo o un párrafo, acompaña imágenes, selecciona y resalta texto y construye los títulos especiales.
+A blinking cursor is an invitation: *create, write*. **The cursor is an idea that wants to grow big**, and Sngular is the technological foundation that makes it real. That's why the **S** always appears next to a **cursor** (`S|`). The cursor is the brand's dynamic, transformative, emphasis element throughout: it opens a subtitle or paragraph, accompanies images, selects and highlights text, and builds special titles.
 
-## Voz y tono
+## Voice and tone
 
-Sngular es un *next-generation technology partner*: no convencional, técnica y segura de sí misma. Se habla con claridad y ambición, sin grandilocuencia.
+Sngular is a *next-generation technology partner*: unconventional, technical, and self-assured. It speaks with clarity and ambition, without grandiloquence.
 
-- **Sí:** frases cortas y afirmativas ("We don't just follow trends — we engineer the future"); datos concretos (+1300 personas, +500 clientes, 11 regiones); verbos de acción; un único mensaje destacado por composición.
-- **No:** superlativos vacíos, tono publicitario de stock, exclamaciones, emojis, jerga sin explicar.
-- **Bilingüe:** español e inglés. Los textos en español son ~20% más largos: deja aire en las cajas. No mezcles idiomas en una misma pieza, salvo nombres de servicio (Data & AI, Cloud Integration…).
-- **Nombre:** se escribe siempre **Sngular** en texto corrido; `S|NGULAR` solo como logotipo. En un servicio o submarca se usa la firma escrita "by Sngular", nunca el logo con guion.
+- **Do:** short, affirmative sentences ("We don't just follow trends — we engineer the future"); concrete data (+1,300 people, +500 clients, 11 regions); action verbs; a single standout message per composition.
+- **Don't:** empty superlatives, stock advertising tone, exclamation marks, emojis, unexplained jargon.
+- **Bilingual:** Spanish and English. Spanish text runs ~20% longer: leave breathing room in boxes. Don't mix languages within the same piece, except for service names (Data & AI, Cloud Integration…).
+- **Name:** always written **Sngular** in running text; `S|NGULAR` only as the logotype. For a service or sub-brand, use the written signature "by Sngular," never the logo with a hyphen.
 
 ## Color
 
-Dos paletas: **primaria (95% de uso)** y **secundaria (5%, acentos)**.
+Two palettes: **primary (95% of use)** and **secondary (5%, accents)**.
 
-| Paleta | Token | HEX | CMYK (impresión) |
+| Palette | Token | HEX | CMYK (print) |
 |---|---|---|---|
-| Primaria | `navy` | #061B2B | 90/75/55/68 |
-| Primaria | `navy-light` | #F2F3F4 | 4/2/2/0 |
-| Primaria | `white` | #FFFFFF | 0/0/0/0 |
-| Primaria | `blue` | #0070F6 | 85/47/1/0 |
-| Secundaria | `purple` | #9747FF | — |
-| Secundaria | `green` | #B3E500 | — |
-| Secundaria | `red` | #FF0059 | — |
+| Primary | `navy` | #061B2B | 90/75/55/68 |
+| Primary | `navy-light` | #F2F3F4 | 4/2/2/0 |
+| Primary | `white` | #FFFFFF | 0/0/0/0 |
+| Primary | `blue` | #0070F6 | 85/47/1/0 |
+| Secondary | `purple` | #9747FF | — |
+| Secondary | `green` | #B3E500 | — |
+| Secondary | `red` | #FF0059 | — |
 
-Reglas del brand book:
+Brand book rules:
 
-1. **La paleta primaria es la protagonista.** Fondos y tipografía van en `navy`, `navy-light`, `white` y `blue`.
-2. **Títulos, siempre en color primario** (`ink` o `blue`), nunca en color de acento.
-3. **Nunca uses colores de acento para párrafos.** `purple`, `green` y `red` son para iconos, líneas y pequeños elementos que captan la atención.
-4. **Nunca uses una caja de color de acento con texto.** Una caja sólida con mucho texto sacrifica la legibilidad.
-5. **Párrafos:** `navy` sobre fondo blanco; `white` sobre fondo oscuro.
-6. **Paleta alternativa** (`chart-*`: Violet, Bolt, Sky, Mint, Lime, Sun, Coral, Magenta): solo para gráficos y roadmaps con muchas series. Nunca como color predominante.
+1. **The primary palette is the star.** Backgrounds and typography use `navy`, `navy-light`, `white`, and `blue`.
+2. **Titles are always in a primary color** (`ink` or `blue`), never an accent color.
+3. **Never use accent colors for paragraphs.** `purple`, `green`, and `red` are for icons, lines, and small eye-catching elements.
+4. **Never use a solid accent-color box with text.** A solid box with a lot of text sacrifices legibility.
+5. **Paragraphs:** `navy` on a white background; `white` on a dark background.
+6. **Alternative palette** (`chart-*`: Violet, Bolt, Sky, Mint, Lime, Sun, Coral, Magenta): only for charts and roadmaps with many series. Never as the predominant color.
 
-Los tokens semánticos (`surface`, `surface-alt`, `surface-inverse`, `ink`, `ink-inverse`, `accent`, `on-accent`, `focus`, `danger`) apuntan a la paleta. Úsalos en web y apps en lugar de los nombres de color.
+Semantic tokens (`surface`, `surface-alt`, `surface-inverse`, `ink`, `ink-inverse`, `accent`, `on-accent`, `focus`, `danger`) map to the palette. Use them in web and apps instead of color names.
 
-## Tipografía
+## Typography
 
-**Outfit** es la tipografía principal, para todo. **Verdana** es la auxiliar: solo en documentos que va a editar un cliente o una persona externa, o en entornos que no tienen Outfit. Outfit es de licencia abierta (Google Fonts, OFL): se puede usar en web y apps sin restricción.
+**Outfit** is the primary typeface, for everything. **Verdana** is the auxiliary one: only in documents a client or an external person will edit, or in environments without Outfit. Outfit is openly licensed (Google Fonts, OFL): it can be used in web and apps without restriction.
 
-| Estilo | Peso | Tamaño / interlínea | Uso |
+| Style | Weight | Size / line-height | Use |
 |---|---|---|---|
-| `display-1` | SemiBold 600 | 92 / 98 | Titular aislado de máximo impacto |
-| `display-2` | SemiBold 600 | 65 / 70 | Titular destacado |
-| `display-2-regular` | Regular 400 | 65 / 70 | Frase o cita grande |
-| `heading-1` | SemiBold 600 | 48 / 52 | Título de slide o página |
-| `heading-1-light` | Light 300 | 48 / 52 | Título editorial |
-| `heading-2` | Regular 400 | 32 / 38 | Subtítulo, principalmente en `blue` |
-| `heading-3` | SemiBold 600 | 22 / 30 | Título de bloque |
-| `paragraph-big` | Regular 400 | 24 / 36 | Solo junto a un display |
-| `paragraph` | Regular 400 | 20 / 30 | Párrafo estándar |
-| `overline` | SemiBold 600 | 18 / 24 | MAYÚSCULAS, introduce un título |
-| `auxiliary` | Light 300 | 14 / 24 | Texto secundario, pies, copyright |
+| `display-1` | SemiBold 600 | 92 / 98 | Standalone headline of maximum impact |
+| `display-2` | SemiBold 600 | 65 / 70 | Featured headline |
+| `display-2-regular` | Regular 400 | 65 / 70 | Large phrase or quote |
+| `heading-1` | SemiBold 600 | 48 / 52 | Slide or page title |
+| `heading-1-light` | Light 300 | 48 / 52 | Editorial title |
+| `heading-2` | Regular 400 | 32 / 38 | Subtitle, mainly in `blue` |
+| `heading-3` | SemiBold 600 | 22 / 30 | Block title |
+| `paragraph-big` | Regular 400 | 24 / 36 | Only alongside a display style |
+| `paragraph` | Regular 400 | 20 / 30 | Standard paragraph |
+| `overline` | SemiBold 600 | 18 / 24 | UPPERCASE, introduces a title |
+| `auxiliary` | Light 300 | 14 / 24 | Secondary text, captions, copyright |
 
-Los tamaños están definidos para un lienzo de **1920×1080** (slides y web de escritorio). En móvil se usan los estilos `ui-*`, que son derivados para UI.
+Sizes are defined for a **1920×1080** canvas (slides and desktop web). On mobile, use the `ui-*` styles, which are derived for UI.
 
-- Para resaltar palabras en un párrafo usa **Outfit Bold (700)** o el componente **Highlight**. Nunca subrayado ni cursiva de énfasis.
-- `paragraph` y `paragraph-big` no se combinan en la misma composición.
-- Interletrado 0 en todos los estilos.
-- Evita viudas: ninguna línea debe terminar con una palabra suelta.
+- To highlight words within a paragraph, use **Outfit Bold (700)** or the **Highlight** component. Never underline or italics for emphasis.
+- `paragraph` and `paragraph-big` are not combined in the same composition.
+- Letter-spacing is 0 across all styles.
+- Avoid widows: no line should end with a single stray word.
 
-## Logotipo
+## Logotype
 
-El logotipo es `S|NGULAR`: la S, el cursor azul y NGULAR. Siempre se usan los archivos originales del grupo **Logos**; nunca se redibuja.
+The logotype is `S|NGULAR`: the S, the blue cursor, and NGULAR. Always use the original files from the **Logos** group; never redraw it.
 
-- **Positivo** (`Logotype_Positive.svg`): navy + cursor blue, sobre fondos claros.
-- **Negativo** (`Logotype_Negative.svg`): white + cursor blue, sobre navy o sobre fotografía oscura.
-- **Sólidos** (`Logotype_Solid_Navy.svg`, `Logotype_Solid_White.svg`): para tamaños pequeños o fondos donde el azul no contrasta.
-- **Área de seguridad:** si el logotipo mide `3x` de ancho y `1.5y` de alto, deja `x` libre a cada lado (un tercio de su ancho) e `y` arriba y abajo (dos tercios de su alto). Ningún elemento gráfico invade ese espacio.
-- **Reducción mínima:** 24px de alto en la versión sólida (`logo-min-solid`) y 36px en las versiones a color (`logo-min-color`).
-- **Isotipo** `S|`: la reducción simbólica de la marca, sin texto. Se usa como avatar de perfil, icono de app, favicon, en la esquina superior derecha de slides y como recurso gráfico.
+- **Positive** (`Logotype_Positive.svg`): navy + blue cursor, on light backgrounds.
+- **Negative** (`Logotype_Negative.svg`): white + blue cursor, on navy or dark photography.
+- **Solid** (`Logotype_Solid_Navy.svg`, `Logotype_Solid_White.svg`): for small sizes or backgrounds where blue doesn't contrast.
+- **Clear space:** if the logotype measures `3x` wide and `1.5y` tall, leave `x` of free space on each side (a third of its width) and `y` above and below (two-thirds of its height). No graphic element may enter that space.
+- **Minimum size:** 24px tall for the solid version (`logo-min-solid`) and 36px for the color versions (`logo-min-color`).
+- **Isotype** `S|`: the symbolic reduction of the brand, with no text. Used as a profile avatar, app icon, favicon, in the top-right corner of slides, and as a graphic resource.
 
-## Recursos gráficos
+## Graphic resources
 
-Son el ADN visual de la marca. Úsalos con intención y con moderación.
+These are the brand's visual DNA. Use them with intention and moderation.
 
-1. **Cursor** (componente `Cursor`, `CursorText`). Una barra vertical `blue` que marca el inicio de algo: acompaña a un párrafo (grosor `cursor-text`) o a una imagen o panel (grosor `cursor-image`, a sangre por un lado).
-2. **Texto seleccionado** (`Highlight`). Fondo `blue` con texto `white`, como si el cursor hubiera seleccionado la frase. Una o dos frases por composición como máximo; si se abusa, pierde intención.
-3. **Título especial** (`SpecialTitle`). La `S|` delante de un título en caja `blue` con texto `white`. Solo una vez por composición. La caja se ajusta al final del texto. Sobre fondo `navy`, la S| va en `white`.
-4. **La "S"** (`BigS`). La S gigante escondida tras un cursor, cortada por un panel. Representa el cursor como elemento en evolución, con Sngular como base. En `navy` sobre claro y en `white` sobre navy.
+1. **Cursor** (`Cursor`, `CursorText` components). A vertical `blue` bar marking the start of something: it accompanies a paragraph (`cursor-text` thickness) or an image or panel (`cursor-image` thickness, bleeding on one side).
+2. **Selected text** (`Highlight`). `blue` background with `white` text, as if the cursor had selected the phrase. One or two phrases per composition at most; overuse loses its intent.
+3. **Special title** (`SpecialTitle`). The `S|` in front of a title in a `blue` box with `white` text. Only once per composition. The box fits the end of the text. On a `navy` background, the S| is `white`.
+4. **The "S"** (`BigS`). The giant S hidden behind a cursor, cut by a panel. It represents the cursor as an evolving element, with Sngular as its foundation. `navy` on light, `white` on navy.
 
-## Iconografía
+## Iconography
 
-Iconos de **Google Material Symbols** (fonts.google.com/icons), de código abierto. Se usa el estilo **Outlined**, en peso 300 o 400, sin relleno. El componente `Icon` los muestra por nombre (`arrow_forward`, `cloud`, `psychology`…).
+Icons from **Google Material Symbols** (fonts.google.com/icons), open source. Use the **Outlined** style, weight 300 or 400, unfilled. The `Icon` component renders them by name (`arrow_forward`, `cloud`, `psychology`…).
 
-- Color: `ink`, `blue` o un acento secundario. Tamaño 24px en UI y 48–64px en slides.
-- Un icono nunca sustituye a una palabra en una acción importante: acompáñalo de texto.
+- Color: `ink`, `blue`, or a secondary accent. Size 24px in UI and 48–64px in slides.
+- An icon never replaces a word in an important action: pair it with text.
 
-## Fotografía
+## Photography
 
-Las imágenes ilustran conceptos y acompañan los mensajes, así que deben tener el tono adecuado:
+Images illustrate concepts and support messages, so they need the right tone:
 
-- **Menos es más:** imágenes sencillas, sin exceso de detalle.
-- **Historias reales:** evita el stock convencional de personas excesivamente felices. Busca imágenes auténticas y de equipos reales.
-- **Gama cromática limitada:** una imagen con pocos colores se integra mejor con la paleta. El blanco y negro funciona muy bien junto al cursor azul.
-- **Fuentes recomendadas:** Unsplash, Lummi (IA) y los bancos internos "Banco de imágenes" e "Imágenes de Sngulares" en Drive.
-- Las fotos van a sangre o recortadas en rectángulo recto, nunca redondeadas.
+- **Less is more:** simple images, without excessive detail.
+- **Real stories:** avoid conventional stock photos of overly happy people. Look for authentic images of real teams.
+- **Limited color range:** an image with few colors integrates better with the palette. Black and white works very well alongside the blue cursor.
+- **Recommended sources:** Unsplash, Lummi (AI), and the internal "Image Bank" and "Images of Sngulars" libraries on Drive.
+- Photos bleed off the edge or are cropped to a straight rectangle, never rounded.
 
-## Retícula y márgenes
+## Grid and margins
 
-Área segura en un lienzo de 1920×1080: `slide-margin-x` (96px) a los lados y `slide-margin-y` (144px) arriba y abajo. El título se pega al margen superior; el resto del contenido se organiza con libertad sin rebasar el margen inferior. Solo las imágenes pueden salir del área segura, y siempre a sangre. En web y apps la escala de espaciado es de base 8 (`space-1` a `space-7`).
+Safe area on a 1920×1080 canvas: `slide-margin-x` (96px) on the sides and `slide-margin-y` (144px) top and bottom. The title sits flush with the top margin; the rest of the content is arranged freely without crossing the bottom margin. Only images may exit the safe area, and always as a bleed. In web and apps, the spacing scale is base-8 (`space-1` to `space-7`).
 
-## Accesibilidad (WCAG 2.1 AA)
+## Accessibility (WCAG 2.1 AA)
 
-- Texto normal ≥ 4.5:1 y texto grande (24px+, o 18.66px+ en SemiBold) ≥ 3:1.
-- `blue` como texto solo sobre `white` (4.52:1). Sobre `navy-light` o `navy`, solo en tamaño grande.
-- `green`, `chart-sky`, `chart-mint`, `chart-lime` y `chart-sun` nunca como texto sobre fondo claro.
-- `red` no se usa para texto pequeño sobre blanco; un error se comunica con icono + texto en `ink`.
-- El color nunca es la única señal: acompaña estados y series de gráficos con texto o etiqueta.
-- Foco de teclado visible: anillo `focus` de 2px con separación de 2px.
+- Normal text ≥ 4.5:1 and large text (24px+, or 18.66px+ in SemiBold) ≥ 3:1.
+- `blue` as text only on `white` (4.52:1). On `navy-light` or `navy`, only at large sizes.
+- `green`, `chart-sky`, `chart-mint`, `chart-lime`, and `chart-sun` are never used as text on a light background.
+- `red` is not used for small text on white; an error is communicated with an icon + text in `ink`.
+- Color is never the only signal: pair states and chart series with text or a label.
+- Visible keyboard focus: 2px `focus` ring with 2px offset.
 
-## Cómo usar este sistema
+## How to use this system
 
-- **Presentaciones:** sigue la sección *Presentaciones* (layouts y reglas de las plantillas de Google Slides).
-- **Web y apps:** sigue la sección *Web y apps* y usa los componentes (`window.Sngular`, React 18).
-- **Tema:** solo claro. Las zonas oscuras se hacen con `surface-inverse` (navy), no con un modo oscuro.
+- **Presentations:** follow the *Presentations* section (layouts and rules for the Google Slides templates).
+- **Web and apps:** follow the *Web and apps* section and use the components (`window.Sngular`, React 18).
+- **Theme:** light only. Dark areas are made with `surface-inverse` (navy), not a dark mode.
 
-## Componentes del sistema
+## System components
 
-Si trabajas con el Design System (Artifact) o con código, estos son los componentes (`window.Sngular`, React 18):
+If you're working with the Design System (Artifact) or with code, these are the components (`window.Sngular`, React 18):
 
-| Componente | Para qué |
+| Component | What it's for |
 |---|---|
-| `Logo` | Logotipo o isotipo, en 4 variantes |
-| `Cursor` / `CursorText` | Barra azul junto a una imagen o un párrafo |
-| `Highlight` | Texto seleccionado (fondo blue, texto white) |
-| `SpecialTitle` | S| + caja blue con título, una vez por composición |
-| `BigS` | La S gigante tras el cursor, cortada por un panel |
-| `Overline` | Rótulo en mayúsculas sobre un título |
-| `Button` | Botón primario, secundario o fantasma, recto |
+| `Logo` | Logotype or isotype, in 4 variants |
+| `Cursor` / `CursorText` | Blue bar next to an image or a paragraph |
+| `Highlight` | Selected text (blue background, white text) |
+| `SpecialTitle` | `S\|` + blue box with title, once per composition |
+| `BigS` | The giant S behind the cursor, cut by a panel |
+| `Overline` | Uppercase tag above a title |
+| `Button` | Primary, secondary, or ghost button, square |
 | `Icon` | Material Symbols Outlined |
-| `Input` | Campo con etiqueta, ayuda y error |
-| `Stat` | Cifra destacada |
-| `Card` | Tarjeta de servicio, caso o insight |
+| `Input` | Field with label, hint, and error |
+| `Stat` | Featured figure |
+| `Card` | Service, case, or insight card |
 
-En HTML sin React, usa las clases de `tokens.css` (por ejemplo `.heading-1` o `.paragraph`) y las variables (`var(--navy)`, `var(--blue)`, `var(--slide-margin-x)`…).
+In plain HTML without React, use the classes from `tokens.css` (e.g. `.heading-1` or `.paragraph`) and the variables (`var(--navy)`, `var(--blue)`, `var(--slide-margin-x)`…).

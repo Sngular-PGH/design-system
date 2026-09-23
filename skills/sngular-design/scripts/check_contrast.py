@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Comprueba el contraste WCAG 2.1 entre dos colores HEX.
+"""Checks WCAG 2.1 contrast between two HEX colors.
 
-Uso: python check_contrast.py 0070F6 F2F3F4 [--large]
-Imprime la ratio y si cumple AA (4.5:1 texto normal, 3:1 texto grande/iconos).
+Usage: python check_contrast.py 0070F6 F2F3F4 [--large]
+Prints the ratio and whether it meets AA (4.5:1 normal text, 3:1 large text/icons).
 """
 import sys
 
@@ -25,4 +25,4 @@ if __name__ == '__main__':
     large = '--large' in sys.argv
     r = ratio(*args)
     need = 3.0 if large else 4.5
-    print(f"{args[0]} sobre {args[1]}: {r:.2f}:1 -> {'CUMPLE' if r >= need else 'NO CUMPLE'} AA ({'texto grande' if large else 'texto normal'}, mínimo {need}:1)")
+    print(f"{args[0]} on {args[1]}: {r:.2f}:1 -> {'PASSES' if r >= need else 'FAILS'} AA ({'large text' if large else 'normal text'}, minimum {need}:1)")

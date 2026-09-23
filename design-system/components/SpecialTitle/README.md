@@ -1,7 +1,7 @@
 # SpecialTitle
 
-El título especial de la marca: la `S|` delante de un título en caja `blue` con texto `white`.
+The brand's special title: the `S|` in front of a title in a `blue` box with `white` text.
 
-- Solo una vez por composición, en el espacio que quieras destacar de verdad.
-- `size="label"` para un rótulo corto (heading-3); `size="title"` para un titular (heading-1), en 1 o 2 líneas.
-- La caja se ajusta al final del texto. Sobre fondo navy usa `onNavy`: la S| pasa a white.
+- Only once per composition, in the spot you really want to stand out.
+- `size="label"` for a short tag (heading-3); `size="title"` for a headline (heading-1), in 1 or 2 lines.
+- The box fits the end of the text. On a navy background use `onNavy`: the S| becomes white.

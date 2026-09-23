@@ -1,49 +1,49 @@
-# Voz, mensajes y cifras
+# Voice, messaging, and figures
 
-## Voz
+## Voice
 
-Sngular es un *next-generation technology partner*: no convencional, cercana ("Complex tech, easy people") y comprometida con el resultado ("We always deliver"). Habla al cliente de su negocio antes que de sí misma: "This presentation is about you."
+Sngular is a *next-generation technology partner*: unconventional, approachable ("Complex tech, easy people"), and committed to results ("We always deliver"). It talks to the client about their business before its own: "This presentation is about you."
 
-- **Sí:** frases cortas; preguntas provocadoras que ponen al cliente en el centro ("Would you look for innovation in a 3,000-year-old business?"); verbos de acción; cifras concretas con fecha; testimonios reales con nombre y cargo.
-- **No:** superlativos vacíos ("líder indiscutible", "revolucionario"), jerga sin explicar, tono publicitario, exclamaciones en exceso, emojis.
-- **Idiomas:** español o inglés, según el pedido; nunca los mezcles en una misma pieza. Los nombres de servicio y los lemas en inglés ("Best place to grow", "We always deliver") pueden quedarse en inglés también en una pieza en español.
-- **El nombre:** "Sngular" en texto corrido. `S|NGULAR` solo es el logotipo.
+- **Do:** short sentences; provocative questions that put the client at the center ("Would you look for innovation in a 3,000-year-old business?"); action verbs; concrete, dated figures; real testimonials with name and title.
+- **Don't:** empty superlatives ("undisputed leader," "revolutionary"), unexplained jargon, advertising tone, excessive exclamation marks, emojis.
+- **Languages:** Spanish or English, depending on the request; never mix them within the same piece. Service names and English taglines ("Best place to grow," "We always deliver") can stay in English even in a Spanish-language piece.
+- **The name:** "Sngular" in running text. `S|NGULAR` is only the logotype.
 
-## Mensajes clave (textos aprobados)
+## Key messages (approved copy)
 
-- "Your next-generation technology partner." / "Tu socio tecnológico de nueva generación."
+- "Your next-generation technology partner."
 - "You are Unconventional and we always Deliver."
 - "Complex tech, easy people."
 - "Best place to grow."
-- "Esto es solo el comienzo de lo que podemos crear."
-- "El cursor es una idea que quiere ser grande."
-- Pilares: **"Best Place To Grow" Culture** (atraer y retener talento), **"We always deliver" Commitment** (satisfacción y fidelidad del cliente) y **"Adaptive Advantage" Strength** (agilidad y aprendizaje continuo).
-- "One Sngular, Multiple Studios": un ecosistema de Studios, Chapters y Teams especializados.
-- Servicios: Software Development, Data & AI, Cloud Integration, Strategic Design, Cybersecurity, Hyper Automation & Low Code, Immersive Experiences, Help desk.
-- Contacto comercial: business@sngular.com
+- "This is just the beginning of what we can create."
+- "The cursor is an idea that wants to grow big."
+- Pillars: **"Best Place To Grow" Culture** (attracting and retaining talent), **"We always deliver" Commitment** (customer satisfaction and loyalty), and **"Adaptive Advantage" Strength** (agility and continuous learning).
+- "One Sngular, Multiple Studios": an ecosystem of specialized Studios, Chapters, and Teams.
+- Services: Software Development, Data & AI, Cloud Integration, Strategic Design, Cybersecurity, Hyper Automation & Low Code, Immersive Experiences, Help desk.
+- Business contact: business@sngular.com
 
-## Cifras (usar con fecha; confirmar antes de publicar)
+## Figures (use with a date; confirm before publishing)
 
-Las fuentes no siempre coinciden. Pon siempre la fecha de la cifra y, si la pieza va a un cliente o se publica, marca la cifra para que la confirme marketing.
+Sources don't always agree. Always include the figure's date and, if the piece goes to a client or is published, flag the figure for marketing to confirm.
 
-| Dato | Valor | Fuente |
+| Metric | Value | Source |
 |---|---|---|
-| Personas | +1,300 (Dec 2024) · "over 1,400 experts" | sngular.com · Executive Deck 2026 |
-| Clientes | +500 en 11 regiones · "+1200 clientes / Global Leaders" | sngular.com · plantillas de slides |
-| Proyectos | +900 al año | sngular.com, Executive Deck 2026 |
-| Ingresos | +100M (FY2024) · 107 M€ | sngular.com · Executive Deck 2026 |
-| Crecimiento | +81% (2021–2024); ×6 en plantilla y ×8 en ingresos en 10 años | Executive Deck 2026 |
-| Presencia | España, Portugal, EE. UU., México, Colombia, Uruguay, Argentina y Arabia Saudí (regiones Europe, USA, LATAM, Middle East) | Executive Deck 2026 |
-| Bolsa | SNG.MC, cotiza en BME Growth desde diciembre de 2021 | Executive Deck 2026 |
-| Fundación | 2015 | Executive Deck 2026 |
+| People | +1,300 (Dec 2024) · "over 1,400 experts" | sngular.com · Executive Deck 2026 |
+| Clients | +500 in 11 regions · "+1,200 clients / Global Leaders" | sngular.com · slide templates |
+| Projects | +900 per year | sngular.com, Executive Deck 2026 |
+| Revenue | +100M (FY2024) · €107M | sngular.com · Executive Deck 2026 |
+| Growth | +81% (2021–2024); ×6 in headcount and ×8 in revenue over 10 years | Executive Deck 2026 |
+| Presence | Spain, Portugal, USA, Mexico, Colombia, Uruguay, Argentina, and Saudi Arabia (Europe, USA, LATAM, Middle East regions) | Executive Deck 2026 |
+| Stock | SNG.MC, listed on BME Growth since December 2021 | Executive Deck 2026 |
+| Founded | 2015 | Executive Deck 2026 |
 
-Nunca inventes una cifra, un cliente o un testimonio. Si falta un dato, deja un marcador visible como `[CIFRA POR CONFIRMAR]`.
+Never invent a figure, a client, or a testimonial. If a data point is missing, leave a visible placeholder like `[FIGURE TO CONFIRM]`.
 
-## Casos de referencia (Executive Deck 2026)
+## Reference cases (Executive Deck 2026)
 
-Úsalos como ejemplos de la estructura **Challenge / Solution / Results**:
+Use these as examples of the **Challenge / Solution / Results** structure:
 
-- **B100, the Healthy Banking** (Abanca): banco 100% digital cloud-native sobre Google Cloud. Resultados: +$230M en negocio en 2024 y +100.000 descargas.
-- **Oysho Training**: app de entrenamiento personalizado para iOS, Android, smartwatch y tablet. Resultados: +100.000 descargas y una valoración de 4,8.
-- **Ferrovial**: alianza IoT + IA para la transformación del sector de infraestructuras.
-- **Vitaly Healthcare Ecosystem**: plazos ajustados y requisitos tecnológicos complejos.
+- **B100, the Healthy Banking** (Abanca): a 100% digital, cloud-native bank on Google Cloud. Results: +$230M in business in 2024 and +100,000 downloads.
+- **Oysho Training**: a personalized training app for iOS, Android, smartwatch, and tablet. Results: +100,000 downloads and a 4.8 rating.
+- **Ferrovial**: an IoT + AI alliance for the transformation of the infrastructure sector.
+- **Vitaly Healthcare Ecosystem**: tight deadlines and complex technology requirements.

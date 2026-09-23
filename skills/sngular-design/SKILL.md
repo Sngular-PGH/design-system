@@ -1,61 +1,61 @@
 ---
 name: sngular-design
-description: Diseña presentaciones, sitios web, landings, pantallas de app y piezas visuales con la marca Sngular, siguiendo el Sngular Design System (colores Navy/Blue, tipografía Outfit, cursor, S|, texto seleccionado, títulos especiales) y el Brand Book 2025. Usa esta skill SIEMPRE que alguien de Sngular pida un deck, slides, una propuesta a cliente, un caso de éxito, una presentación ejecutiva, una web, una landing, un mockup, una app, un post o cualquier pieza con la marca Sngular, aunque no diga "marca" ni "design system", y también cuando pida revisar si algo cumple la marca Sngular. Works in Spanish and English.
+description: Designs presentations, websites, landing pages, app screens, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in Spanish and English.
 ---
 
 # Sngular Design
 
-Esta skill convierte cualquier pedido visual de Sngular en una pieza fiel a la marca. La marca tiene pocas reglas pero muy reconocibles: si se respetan, cualquier persona (desde un desarrollador hasta el CEO) produce algo que parece hecho por el equipo de marca. Si se ignoran, sale "una plantilla azul genérica", que es justo lo que queremos evitar.
+This skill turns any Sngular visual request into a piece that's faithful to the brand. The brand has few rules, but they're very recognizable: if they're followed, anyone (from a developer to the CEO) produces something that looks like it was made by the brand team. If they're ignored, you get "a generic blue template," which is exactly what we want to avoid.
 
-## 1. Decide qué se está haciendo
+## 1. Decide what's being made
 
-| Pedido | Canal | Lee después |
+| Request | Channel | Read next |
 |---|---|---|
-| deck, slides, presentación, propuesta, pitch, caso de éxito, kick-off, webinar | Presentación (prioridad 1) | `references/presentations.md` |
-| web, landing, página, hero, newsletter, banner | Web (prioridad 2) | `references/web.md` |
-| app, pantalla, flujo, dashboard, prototipo | App (prioridad 3) | `references/apps.md` |
-| post de redes, portada, cartel, invitación | Pieza visual | `references/presentations.md` (recursos) + `references/web.md` (formatos) |
-| "revisa si esto cumple la marca" | Revisión | la checklist de la sección 5 |
+| deck, slides, presentation, proposal, pitch, success story, kick-off, webinar | Presentation (priority 1) | `references/presentations.md` |
+| website, landing page, page, hero, newsletter, banner | Web (priority 2) | `references/web.md` |
+| app, screen, flow, dashboard, prototype | App (priority 3) | `references/apps.md` |
+| social media post, cover, poster, invitation | Visual piece | `references/presentations.md` (resources) + `references/web.md` (formats) |
+| "check if this complies with the brand" | Review | the checklist in section 5 |
 
-Lee **siempre** `references/brand-foundations.md` (color, tipo, logo, recursos, accesibilidad) y `references/voice-and-messaging.md` (tono, mensajes y cifras). Después, solo la referencia del canal.
+Always read `references/brand-foundations.md` (color, type, logo, resources, accessibility) and `references/voice-and-messaging.md` (tone, messages, and figures). Then, only the reference for the relevant channel.
 
-## 2. Carga el Design System
+## 2. Load the Design System
 
-La fuente de verdad es el **Sngular Design System**. Úsalo así, por orden:
+The source of truth is the **Sngular Design System**. Use it in this order:
 
-1. **En claude.ai con la herramienta Artifact:** el Design System publicado es `https://claude.ai/artifact/EcM2J9oVHkk7ExgXXMwDVM`. Si está marcado como predeterminado de la organización, las Slides y los Designs lo usan solos. Si no, pásalo explícitamente como design system al crear la pieza. Lee su `project/README.md` antes de elegir colores o tipografía. Si el enlace no responde, busca en la lista de Design Systems uno titulado "Sngular Design System".
-2. **Sin acceso al artefacto** (Claude Code, API, otro entorno): usa los archivos de esta skill. `assets/tokens.json` y `assets/tokens.css` tienen todos los valores, `assets/logos/` los 8 SVG oficiales y `assets/fonts/` la Outfit.
-3. **Nunca** inventes un color, un tamaño o un logo que no esté en esas fuentes. Si algo falta, usa el valor más cercano del sistema y dilo en la entrega.
+1. **In claude.ai with the Artifact tool:** the published Design System is `https://claude.ai/artifact/EcM2J9oVHkk7ExgXXMwDVM`. If it's set as the organization's default, Slides and Designs use it automatically. If not, pass it explicitly as the design system when creating the piece. Read its `project/README.md` before choosing colors or typography. If the link doesn't respond, search the list of Design Systems for one titled "Sngular Design System".
+2. **Without access to the artifact** (Claude Code, API, other environment): use this skill's files. `assets/tokens.json` and `assets/tokens.css` have all the values, `assets/logos/` has the 8 official SVGs, and `assets/fonts/` has Outfit.
+3. **Never** invent a color, size, or logo that isn't in those sources. If something is missing, use the closest value from the system and say so in the delivery.
 
-## 3. Construye la pieza
+## 3. Build the piece
 
-Sigue la referencia del canal. Las cinco decisiones que más pesan en el resultado son:
+Follow the reference for the channel. The five decisions that matter most for the result are:
 
-1. **Fondo y ritmo.** La paleta primaria ocupa el 95% (`navy`, `navy-light`, `white`, `blue`). En un deck, alterna slides blancas de contenido con separadores y slides de impacto en navy o blue.
-2. **Un solo gesto de marca por composición.** Elige uno: un `SpecialTitle` (S| + caja azul), un par de `Highlight` (texto seleccionado), un cursor junto a la foto o la S gigante. Nunca todos a la vez. Así el recurso destaca.
-3. **Tipografía de marca a escala.** Outfit, con los estilos del sistema (`display-1` 92/98, `heading-1` 48/52, `heading-2` 32/38 en blue, `paragraph` 20/30…). Los títulos siempre en color primario.
-4. **Área segura.** En 16:9, 96px a los lados y 144px arriba y abajo, sobre un lienzo de 1920×1080. El título se pega al margen superior. Solo las fotos salen a sangre.
-5. **Contenido real.** Usa los mensajes y las cifras de `voice-and-messaging.md`, en el idioma del pedido. Nunca uses lorem ipsum en una entrega.
+1. **Background and rhythm.** The primary palette covers 95% (`navy`, `navy-light`, `white`, `blue`). In a deck, alternate white content slides with dividers and impact slides in navy or blue.
+2. **A single brand gesture per composition.** Choose one: a `SpecialTitle` (S| + blue box), a couple of `Highlight`s (selected text), a cursor next to the photo, or the giant S. Never all at once. That way the resource stands out.
+3. **Brand typography at scale.** Outfit, with the system's styles (`display-1` 92/98, `heading-1` 48/52, `heading-2` 32/38 in blue, `paragraph` 20/30…). Titles always in a primary color.
+4. **Safe area.** In 16:9, 96px on the sides and 144px top and bottom, on a 1920×1080 canvas. The title sits flush with the top margin. Only photos may bleed off the edge.
+5. **Real content.** Use the messages and figures from `voice-and-messaging.md`, in the language of the request. Never use lorem ipsum in a delivery.
 
-## 4. Formatos de entrega
+## 4. Delivery formats
 
-- **Presentación:** tipo Slides con el Design System de Sngular. Si piden explícitamente PowerPoint o Google Slides, entrega .pptx: Google Slides lo importa sin problema.
-- **Web, landing o mockup:** tipo Design con el Design System. Si piden código, HTML o React con `assets/tokens.css` y las clases de los componentes.
-- **App:** pantallas en Design. En código, los tokens y los componentes del sistema.
-- Siempre en **tema claro**. Las zonas oscuras se hacen con `surface-inverse` (navy), no con un modo oscuro.
+- **Presentation:** Slides type with the Sngular Design System. If PowerPoint or Google Slides is explicitly requested, deliver .pptx: Google Slides imports it without issue.
+- **Web, landing page, or mockup:** Design type with the Design System. If code is requested, HTML or React with `assets/tokens.css` and the component classes.
+- **App:** screens in Design. In code, the system's tokens and components.
+- Always in **light theme**. Dark areas are made with `surface-inverse` (navy), not a dark mode.
 
-## 5. Checklist antes de entregar
+## 5. Checklist before delivering
 
-Repasa cada punto. Si algo falla, corrígelo antes de entregar; no te limites a avisar.
+Go through each point. If something fails, fix it before delivering; don't just flag it.
 
-- [ ] Solo colores del sistema. Los secundarios (`purple`, `green`, `red`) solo en iconos, líneas o detalles, nunca en títulos, párrafos ni cajas con texto.
-- [ ] Todo el texto en Outfit (o Verdana si el entorno no la tiene) con estilos del sistema. Títulos en navy, white o blue.
-- [ ] Contraste AA: `blue` como texto pequeño solo sobre `white`, y ningún texto `green` sobre fondo claro. Puedes comprobar pares con `python scripts/check_contrast.py 0070F6 F2F3F4`.
-- [ ] Logo original, en la variante correcta para el fondo y con su tamaño mínimo (36px a color, 24px sólido). Isotipo S| arriba a la derecha en las slides.
-- [ ] Como máximo un título especial y uno o dos resaltados por composición.
-- [ ] Área segura respetada, cajas alineadas, sin viudas y sin cajas vacías.
-- [ ] Fotos reales, de gama cromática limitada y en rectángulo recto.
-- [ ] Idioma único y coherente. Las cifras salen de `voice-and-messaging.md` y lo dudoso se ha marcado para revisar.
-- [ ] El pie de slide lleva "Copyright © Sngular. All rights reserved".
+- [ ] Only colors from the system. Secondaries (`purple`, `green`, `red`) only in icons, lines, or details, never in titles, paragraphs, or boxes with text.
+- [ ] All text in Outfit (or Verdana if the environment doesn't have it) with the system's styles. Titles in navy, white, or blue.
+- [ ] AA contrast: `blue` as small text only on `white`, and no `green` text on a light background. You can check pairs with `python scripts/check_contrast.py 0070F6 F2F3F4`.
+- [ ] Original logo, in the correct variant for the background and at its minimum size (36px in color, 24px solid). S| isotype top right on slides.
+- [ ] At most one special title and one or two highlights per composition.
+- [ ] Safe area respected, boxes aligned, no widows, no empty boxes.
+- [ ] Real photos, with a limited color range, in a straight rectangle.
+- [ ] Single, consistent language. Figures come from `voice-and-messaging.md`, and anything uncertain has been flagged for review.
+- [ ] The slide footer carries "Copyright © Sngular. All rights reserved".
 
-Al entregar, di en una o dos líneas qué recursos de marca usaste y qué supuestos hiciste (por ejemplo, una cifra por confirmar o una foto que hay que sustituir).
+When delivering, say in one or two lines which brand resources you used and what assumptions you made (for example, a figure to confirm or a photo that needs replacing).

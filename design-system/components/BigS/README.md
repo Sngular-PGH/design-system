@@ -1,7 +1,7 @@
 # BigS
 
-La "S" gigante escondida tras el cursor y cortada por un panel: el recurso gráfico que transforma el logo en composición.
+The giant "S" hidden behind the cursor and cut by a panel: the graphic resource that turns the logo into a composition.
 
-- Úsala en portadas, separadores de sección, cabeceras de web y piezas de redes.
-- Sobre fondo claro la S es navy y el panel `navy-light`; con `onNavy`, la S es white y el panel navy.
-- Es decorativa (`aria-hidden`). No pongas texto encima del panel sin suficiente contraste.
+- Use it on covers, section dividers, web headers, and social pieces.
+- On a light background the S is navy and the panel is `navy-light`; with `onNavy`, the S is white and the panel is navy.
+- It is decorative (`aria-hidden`). Don't place text over the panel without sufficient contrast.

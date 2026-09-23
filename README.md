@@ -1,25 +1,25 @@
 # Sngular Design System + Skill
 
-Repositorio: https://github.com/Sngular-PGH/design-system
+Repository: https://github.com/Sngular-PGH/design-system
 
-Repositorio del sistema de diseño de Sngular (presentaciones, web y apps) y de la skill de Claude que lo aplica.
+Repository for the Sngular design system (presentations, web, and apps) and the Claude skill that applies it.
 
-| Carpeta | Contenido |
+| Folder | Contents |
 |---|---|
-| `design-system/` | Exportación del **Sngular Design System**: `tokens.json`, `tokens.css`, guía de marca (`README.md`), secciones (`docs/`), componentes React (`components/`), logos SVG oficiales y la fuente Outfit. |
-| `skills/sngular-design/` | Código fuente de la skill **sngular-design**: `SKILL.md`, referencias, tokens, logos, fuente y un script de contraste. |
-| `dist/sngular-design.skill` | La skill empaquetada, lista para instalar. |
+| `design-system/` | Export of the **Sngular Design System**: `tokens.json`, `tokens.css`, brand guide (`README.md`), sections (`docs/`), React components (`components/`), official SVG logos, and the Outfit font. |
+| `skills/sngular-design/` | Source code of the **sngular-design** skill: `SKILL.md`, references, tokens, logos, font, and a contrast script. |
+| `dist/sngular-design.skill` | The packaged skill, ready to install. |
 
-## Fuente de verdad
+## Source of truth
 
-El sistema vivo es el artefacto **Sngular Design System** en Claude:
+The living system is the **Sngular Design System** artifact in Claude:
 https://claude.ai/artifact/EcM2J9oVHkk7ExgXXMwDVM
 
-Este repositorio es una copia versionada. Cuando cambie el artefacto, vuelve a exportarlo aquí y crea un commit.
+This repository is a versioned copy. When the artifact changes, re-export it here and create a commit.
 
-Fuentes de la marca: Brand Book Sngular 2025, Guías y Modelos de Slides Editables 2025, [2026 Corporate Template] Unconventional Executive Deck y sngular.com.
+Brand sources: Sngular Brand Book 2025, 2025 Editable Slide Guides and Templates, [2026 Corporate Template] Unconventional Executive Deck, and sngular.com.
 
-## Usar los tokens (web y apps)
+## Using the tokens (web and apps)
 
 ```html
 <link rel="stylesheet" href="design-system/tokens.css">
@@ -27,20 +27,20 @@ Fuentes de la marca: Brand Book Sngular 2025, Guías y Modelos de Slides Editabl
 <h1 class="heading-1" style="color: var(--ink)">Your next-generation technology partner</h1>
 ```
 
-Componentes: carga React 18, `design-system/components/bundle.css` y `design-system/components/bundle.js` (se expone como `window.Sngular`). Los tipos están en `components/index.d.ts`.
+Components: load React 18, `design-system/components/bundle.css`, and `design-system/components/bundle.js` (exposed as `window.Sngular`). Types are in `components/index.d.ts`.
 
-## Instalar la skill
+## Installing the skill
 
-- **Claude (claude.ai / desktop):** sube `dist/sngular-design.skill` en la sección de skills de la configuración. Para toda la organización, lo hace un administrador desde la configuración de la organización.
-- **Claude Code:** copia `skills/sngular-design/` a `.claude/skills/sngular-design/` (del proyecto) o a `~/.claude/skills/sngular-design/` (personal).
+- **Claude (claude.ai / desktop):** upload `dist/sngular-design.skill` in the skills section of settings. For an entire organization, an admin does this from the organization settings.
+- **Claude Code:** copy `skills/sngular-design/` to `.claude/skills/sngular-design/` (project) or `~/.claude/skills/sngular-design/` (personal).
 
-## Licencias
+## Licenses
 
 - Outfit: SIL Open Font License 1.1 (`design-system/fonts/OFL.txt`).
-- Iconos: Google Material Symbols (Apache 2.0).
-- Logos y marca: © Sngular. Uso interno según el Brand Book.
+- Icons: Google Material Symbols (Apache 2.0).
+- Logos and brand: © Sngular. Internal use per the Brand Book.
 
-## Actualizar desde el Design System
+## Updating from the Design System
 
-1. Exporta los archivos del artefacto a `design-system/` y, si cambias la skill, vuelve a empaquetarla en `dist/`.
-2. Crea un commit y haz `git push`.
+1. Export the artifact's files to `design-system/` and, if you change the skill, repackage it into `dist/`.
+2. Create a commit and `git push`.

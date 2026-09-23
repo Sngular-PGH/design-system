@@ -1,7 +1,7 @@
 # Cursor
 
-La barra vertical azul que representa el inicio de algo: una creación, una propuesta, un desarrollo.
+The vertical blue bar that represents the start of something: a creation, a proposal, a development.
 
-- `size="text"` (grosor `cursor-text`) delante de un subtítulo o párrafo, alineado con la primera línea.
-- `size="image"` (grosor `cursor-image`) pegado al borde de una foto o panel.
-- Siempre en `blue`. Es decorativo: no transmite información por sí solo.
+- `size="text"` (`cursor-text` thickness) in front of a subtitle or paragraph, aligned with its first line.
+- `size="image"` (`cursor-image` thickness) flush against the edge of a photo or panel.
+- Always `blue`. It is decorative: it doesn't convey information on its own.

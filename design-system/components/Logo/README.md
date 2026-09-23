@@ -1,9 +1,9 @@
 # Logo
 
-Dibuja el logotipo `S|NGULAR` o el isotipo `S|` a partir de los SVG originales del brand book.
+Renders the `S|NGULAR` logotype or the `S|` isotype from the original brand book SVGs.
 
-- `variant="positive"` sobre fondos claros; `"negative"` sobre navy o foto oscura; `"solid-navy"` / `"solid-white"` para tamaños pequeños.
-- Alto mínimo: 36px en las versiones a color y 24px en las sólidas.
-- Respeta el área de seguridad: un tercio del ancho a cada lado y dos tercios del alto arriba y abajo.
-- `type="isotype"` para favicon, avatar, icono de app y la esquina superior derecha de las slides.
-- Nunca lo recolorees, estires, rotes ni le añadas sombras o contornos.
+- `variant="positive"` on light backgrounds; `"negative"` on navy or dark photo; `"solid-navy"` / `"solid-white"` for small sizes.
+- Minimum height: 36px for the color versions and 24px for the solid ones.
+- Respect the clear space: a third of the width on each side and two-thirds of the height above and below.
+- `type="isotype"` for favicon, avatar, app icon, and the top-right corner of slides.
+- Never recolor, stretch, rotate, or add shadows or outlines to it.

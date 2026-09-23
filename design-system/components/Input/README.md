@@ -1,7 +1,7 @@
 # Input
 
-Campo de texto recto con etiqueta visible, ayuda y mensaje de error. *Derivado para UI.*
+Square text field with a visible label, hint, and error message. *Derived for UI.*
 
-- La etiqueta siempre visible; el placeholder solo como ejemplo, nunca como etiqueta.
-- Error: borde `danger` de 2px + icono `error` en danger + mensaje en `ink`, para no depender del color.
-- Alto 48px, borde `line-strong`, foco con anillo `focus`.
+- The label is always visible; the placeholder is only an example, never a label.
+- Error: 2px `danger` border + `error` icon in danger + message in `ink`, so it doesn't rely on color alone.
+- 48px tall, `line-strong` border, focus with a `focus` ring.

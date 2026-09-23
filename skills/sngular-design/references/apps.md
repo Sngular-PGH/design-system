@@ -1,12 +1,12 @@
-# Apps Sngular
+# Sngular Apps
 
-Prioridad 3. Mismo sistema que la web, adaptado a pantallas táctiles.
+Priority 3. Same system as the web, adapted to touch screens.
 
-- **Icono de app:** isotipo `S|` positivo sobre white o negativo sobre navy. Sin texto.
-- **Tema claro.** La barra superior puede ir en navy con `ink-inverse`.
-- **Tipografía:** `ui-body` (16/24) para el cuerpo, `ui-label` (16/24 SemiBold) para botones y pestañas, `ui-caption` (13/18) para ayudas. En los títulos de pantalla, `heading-1` escalado a 28–32px.
-- **Navegación inferior:** 3–5 destinos con icono Outlined de 24px + etiqueta; el activo en `accent`.
-- **Controles:** `Button` (48px de alto), `Input` (48px, etiqueta visible) y áreas táctiles de al menos 44×44px. Sin redondeo, salvo casillas (`radius-xs`) y avatares (`radius-full`).
-- **Estados:** foco con anillo `focus`, error con borde `danger` + icono + texto en `ink`, y confirmación en `success`.
-- **Gesto de marca:** como mucho uno por pantalla. Por ejemplo, un `Highlight` en el titular de onboarding o el cursor junto a la imagen de un detalle.
-- **Datos:** para gráficos, primero `navy`, `blue` y `navy-light`; después la paleta `chart-*`, siempre con etiquetas.
+- **App icon:** positive `S|` isotype on white or negative on navy. No text.
+- **Light theme.** The top bar can be navy with `ink-inverse`.
+- **Typography:** `ui-body` (16/24) for body text, `ui-label` (16/24 SemiBold) for buttons and tabs, `ui-caption` (13/18) for hints. On screen titles, `heading-1` scaled to 28–32px.
+- **Bottom navigation:** 3–5 destinations with a 24px Outlined icon + label; the active one in `accent`.
+- **Controls:** `Button` (48px tall), `Input` (48px, visible label), and touch targets of at least 44×44px. No rounding, except checkboxes (`radius-xs`) and avatars (`radius-full`).
+- **States:** focus with a `focus` ring, error with a `danger` border + icon + text in `ink`, and confirmation in `success`.
+- **Brand gesture:** at most one per screen. For example, a `Highlight` in the onboarding headline or the cursor next to a detail image.
+- **Data:** for charts, use `navy`, `blue`, and `navy-light` first; then the `chart-*` palette, always with labels.

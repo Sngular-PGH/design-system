@@ -1,7 +1,7 @@
 # Overline
 
-Texto corto en mayúsculas que categoriza o introduce un título (sector, fecha, sección).
+Short uppercase text that categorizes or introduces a title (sector, date, section).
 
-- Va siempre encima del título, a `space-2` de distancia.
-- `tone="accent"` en blue sobre fondo claro; `onNavy` en white sobre navy.
-- Una o tres palabras. No lo uses como título.
+- Always goes above the title, at a `space-2` distance.
+- `tone="accent"` in blue on a light background; `onNavy` in white on navy.
+- One to three words. Don't use it as a title.

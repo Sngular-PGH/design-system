@@ -1,4 +1,4 @@
-/* Sngular Design System — tokens.css (generado desde tokens.json). Tema único: light. */
+/* Sngular Design System — tokens.css (generated from tokens.json). Theme: light only. */
 @font-face { font-family: 'Outfit'; src: url('fonts/Outfit-VariableFont_wght.ttf') format('truetype'); font-weight: 100 900; font-style: normal; font-display: swap; }
 :root {
   --navy: #061b2b;

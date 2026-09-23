@@ -1,4 +1,4 @@
-# Sngular Web
+# Web and apps
 
 How to carry the brand into websites (priority 2) and apps (priority 3). The reference is sngular.com.
 
@@ -20,15 +20,12 @@ How to carry the brand into websites (priority 2) and apps (priority 3). The ref
 - **Contact form:** `Input` fields with a visible label, primary button.
 - **Footer:** navy background, negative logotype, links in white `ui-caption`.
 
-## Formats
+## Components
 
-- **Desktop web:** maximum container of 1280–1440px with 96px side margins (`slide-margin-x`), narrowing to `space-4`/`space-3` on mobile.
-- **Landing page:** hero → value proposition → stats → services or benefits → success story with testimonial → call to action → footer.
-- **Newsletter or email:** 600px wide, Outfit with Verdana as a fallback (many email clients don't load web fonts), positive logotype at the top, and a single primary button.
-- **Social media:** an impactful photo or video; if there's text, a headline with `Highlight` or the S hidden behind the cursor. Formats 1080×1080 and 1080×1350.
+This system's components (`window.Sngular`) are designed for web and apps: `Logo`, `Cursor`, `CursorText`, `Highlight`, `SpecialTitle`, `BigS`, `Overline`, `Button`, `Icon`, `Input`, `Stat`, and `Card`. Interactive states (hover, focus, disabled) are defined in `bundle.css`.
 
-## Code
+## Apps
 
-- Load `assets/tokens.css` and use its variables and classes; don't copy HEX values by hand.
-- Load Outfit (`assets/fonts/` or Google Fonts) and Material Symbols Outlined (Google Fonts).
-- AA contrast, visible focus, and semantic HTML. No `border-radius`, except on avatars.
+- App icon: positive `S|` isotype on white or negative on navy (iOS and Android).
+- Bottom navigation bar with 24px Outlined icons + label; active state in `accent`.
+- Minimum touch target of 44×44px.
