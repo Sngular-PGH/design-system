@@ -1,30 +1,58 @@
 {
   "v": 3,
-  "layout": "files",
-  "createdOnFiles": {
-    "v": 1,
-    "at": "2026-09-22T19:04:36Z"
-  },
-  "title": "Sngular Design System",
-  "namespace": "Sngular",
-  "libraries": [
-    {
-      "name": "react",
-      "version": "18"
-    },
-    {
-      "name": "react-dom",
-      "version": "18"
-    }
-  ],
-  "sections": {},
-  "groups": [
-    "Logos"
-  ],
   "assetGroups": {
     "Logos": {
+      "files": {
+        "Isotype_Negative.svg": {
+          "blob": "6cd99e5f8d419ed3486cc0722e27d300",
+          "name": "Isotype_Negative.svg",
+          "size": 941,
+          "type": "image/svg+xml"
+        },
+        "Isotype_Positive.svg": {
+          "blob": "045d19dd80311895cd9332ea6379f423",
+          "name": "Isotype_Positive.svg",
+          "size": 944,
+          "type": "image/svg+xml"
+        },
+        "Isotype_Solid_Navy.svg": {
+          "blob": "3acddd6f099de3b75c93fca9ab00c4f5",
+          "name": "Isotype_Solid_Navy.svg",
+          "size": 944,
+          "type": "image/svg+xml"
+        },
+        "Isotype_Solid_White.svg": {
+          "blob": "e15d446ca4e7d865d45747af4206c401",
+          "name": "Isotype_Solid_White.svg",
+          "size": 938,
+          "type": "image/svg+xml"
+        },
+        "Logotype_Negative.svg": {
+          "blob": "b77ef475526503b437ed32f05fa5e4a2",
+          "name": "Logotype_Negative.svg",
+          "size": 2628,
+          "type": "image/svg+xml"
+        },
+        "Logotype_Positive.svg": {
+          "blob": "71102aeaef779c28181b67e78e321495",
+          "name": "Logotype_Positive.svg",
+          "size": 2649,
+          "type": "image/svg+xml"
+        },
+        "Logotype_Solid_Navy.svg": {
+          "blob": "574d669fc6ed41d407ea4bc98fbce465",
+          "name": "Logotype_Solid_Navy.svg",
+          "size": 2649,
+          "type": "image/svg+xml"
+        },
+        "Logotype_Solid_White.svg": {
+          "blob": "e90bbd591cfe86b8d22fea13591447d7",
+          "name": "Logotype_Solid_White.svg",
+          "size": 2625,
+          "type": "image/svg+xml"
+        }
+      },
       "name": "Logos",
-      "tile": "l",
       "order": [
         "Logotype_Positive.svg",
         "Logotype_Negative.svg",
@@ -35,67 +63,45 @@
         "Isotype_Solid_Navy.svg",
         "Isotype_Solid_White.svg"
       ],
-      "files": {
-        "Logotype_Positive.svg": {
-          "name": "Logotype_Positive.svg",
-          "blob": "71102aeaef779c28181b67e78e321495",
-          "size": 2649,
-          "type": "image/svg+xml"
-        },
-        "Logotype_Negative.svg": {
-          "name": "Logotype_Negative.svg",
-          "blob": "b77ef475526503b437ed32f05fa5e4a2",
-          "size": 2628,
-          "type": "image/svg+xml"
-        },
-        "Logotype_Solid_Navy.svg": {
-          "name": "Logotype_Solid_Navy.svg",
-          "blob": "574d669fc6ed41d407ea4bc98fbce465",
-          "size": 2649,
-          "type": "image/svg+xml"
-        },
-        "Logotype_Solid_White.svg": {
-          "name": "Logotype_Solid_White.svg",
-          "blob": "e90bbd591cfe86b8d22fea13591447d7",
-          "size": 2625,
-          "type": "image/svg+xml"
-        },
-        "Isotype_Positive.svg": {
-          "name": "Isotype_Positive.svg",
-          "blob": "045d19dd80311895cd9332ea6379f423",
-          "size": 944,
-          "type": "image/svg+xml"
-        },
-        "Isotype_Negative.svg": {
-          "name": "Isotype_Negative.svg",
-          "blob": "6cd99e5f8d419ed3486cc0722e27d300",
-          "size": 941,
-          "type": "image/svg+xml"
-        },
-        "Isotype_Solid_Navy.svg": {
-          "name": "Isotype_Solid_Navy.svg",
-          "blob": "3acddd6f099de3b75c93fca9ab00c4f5",
-          "size": 944,
-          "type": "image/svg+xml"
-        },
-        "Isotype_Solid_White.svg": {
-          "name": "Isotype_Solid_White.svg",
-          "blob": "e15d446ca4e7d865d45747af4206c401",
-          "size": 938,
-          "type": "image/svg+xml"
-        }
-      }
+      "tile": "l"
     }
   },
   "blobs": {},
+  "createdOnFiles": {
+    "at": "2026-09-22T19:04:36Z",
+    "v": 1
+  },
   "docs": {
     "readme": "project/README.md",
-    "sections": []
+    "sections": [
+      "project/01-presentations.md",
+      "project/02-web-and-apps.md",
+      "project/03-documents.md"
+    ]
   },
+  "groups": [
+    "Logos"
+  ],
   "lastChange": {
+    "at": "2026-09-24T13:12:00Z",
     "by": "Claude",
-    "at": "2026-09-22T19:04:36Z",
-    "via": "claude.ai chat",
-    "note": "Initial system from the Sngular Brand Book 2025, 2025 Slide templates, and sngular.com"
-  }
+    "note": "Added a Documents (Word/Google Docs) section built from the official Sngular Document Template spec: fonts, page setup, paragraph styles, tables, cover/back cover, and the open brand-team decisions on the template. Extended usage priority to 4) documents. No changes to presentations, web/apps, tokens, logos, or fonts.",
+    "via": "claude.ai chat"
+  },
+  "layout": "files",
+  "libraries": [
+    {
+      "global": "React",
+      "name": "react",
+      "version": "18"
+    },
+    {
+      "global": "ReactDOM",
+      "name": "react-dom",
+      "version": "18"
+    }
+  ],
+  "namespace": "Sngular",
+  "sections": {},
+  "title": "Sngular Design System"
 }

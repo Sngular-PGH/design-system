@@ -1,0 +1,17 @@
+{
+  "name": "install-sngular-skill",
+  "version": "1.0.0",
+  "description": "Installs the sngular-design Claude Code skill into .claude/skills/",
+  "bin": {
+    "install-sngular-skill": "./bin/install.js"
+  },
+  "files": [
+    "bin/",
+    "skills/"
+  ],
+  "engines": {
+    "node": ">=16.7"
+  },
+  "license": "UNLICENSED",
+  "private": true
+}
