@@ -14,9 +14,8 @@ Source: the official Sngular document template (`assets/templates/Sngular_Docume
 
 | Setting | Value |
 |---|---|
-| Paper | A4 (21 × 29.7 cm). For clients in the US or Canada, confirm whether Letter is needed |
-| Margins | 2.54 cm on all sides |
-| Effective text area | The template pulls content 0.75 cm into the left margin and 0.82 cm into the right (text starts 1.79 cm from the edge) |
+| Paper | A4 (21 × 29.7 cm). A US Letter version is in review (D11) |
+| Margins | 1.8 cm left and right, 2.54 cm top and bottom (text area 17.4 cm wide) |
 | Header / footer distance | 1 cm |
 | First page | Different first page: the cover lives in the first-page header |
 
@@ -31,8 +30,9 @@ Use only the styles in the template. Don't create new styles or format text by h
 | Heading 2 | Subsection | Verdana 18 pt | Regular | `navy` | 10 pt after |
 | Heading 3 | Block | Verdana 13 pt | Regular | `navy` | 10 pt after |
 | Heading 4 | Sub-block | Verdana 12 pt | Regular | `navy` | 10 pt after |
-| Heading 5 | Links / table headers (see D2) | Verdana 10 pt | Bold | `blue` | 10 pt after |
+| Heading 5 | Links / table headers | Verdana 10 pt | Bold | `blue` | 10 pt after |
 | Heading 6 | Quotes | Verdana 10 pt | Italic | `navy` | 10 pt after |
+| Subtitle | Subtitle under the document title | Verdana 15 pt | Regular | `blue` | 16 pt after |
 | Normal | Paragraphs | Verdana 10 pt | Regular | `navy` | 10 pt after, line 1.15 |
 
 Headings keep with the next paragraph and don't split across pages. Titles are always `navy` or `blue`, never an accent color.
@@ -46,9 +46,9 @@ Headings keep with the next paragraph and don't split across pages. Titles are a
 
 | Element | Value |
 |---|---|
-| Width | Full text width (17.5 cm), same left offset as the text (−0.75 cm) |
-| Header row | `blue` fill (D1: use `#0070F6`, not the template's `#0085FF` — see decisions below), white Verdana Bold 8 pt, repeats on each page |
-| First column | Verdana 9 pt, `navy` Bold (D3 fix applied — the template's `blue` first column fails AA) |
+| Width | Full text width (17.4 cm), aligned with the text |
+| Header row | `blue` fill (`#0070F6`), white Verdana Bold 8 pt, repeats on each page |
+| First column | Verdana 9 pt, `navy` Bold |
 | Body | Verdana 9 pt, `navy` |
 | Rows | Alternating `navy-light` (#F2F3F4) and `white` |
 | Borders | White 0.5 pt between cells (visible gaps, no dark lines) |
@@ -58,9 +58,9 @@ Headings keep with the next paragraph and don't split across pages. Titles are a
 ## 6. Header, footer, cover, and back cover
 
 - **Header (from page 2):** document title in Verdana 9 pt `blue` on the left; positive logotype on the right, 3.08 × 0.77 cm, 0.79 cm from the top edge.
-- **Footer:** page number on the right, "Copyright © Sngular. All rights reserved." on the left (D6 — apply the same footer line used on slides until the brand team confirms otherwise).
+- **Footer:** "Copyright © Sngular. All rights reserved." on the left, page number on the right (already in the template).
 - **Cover:** full-bleed `navy` artwork with the outlined giant S cut by a `blue` cursor on the right edge and the negative logotype bottom left. Title next to the white `S|` isotype in Outfit Light 24 pt `white`; below it, a date or subtitle line in Outfit Light 12 pt `white`. Keep the title to about 30 characters so it fits on two lines. Build the cover as a single page break (D9), not a stack of empty Heading 1 paragraphs — those pollute the navigation pane and table of contents.
-- **Back cover:** full-bleed `navy`, `S|` isotype with the closing tagline in Outfit Light 22 pt `white`, negative logotype at the bottom. Confirm the tagline copy against `voice-and-messaging.md` before using it (D10) — it isn't in the approved messages list yet.
+- **Back cover:** full-bleed `navy`, `S|` isotype with the closing tagline in Outfit Light 22 pt `white`, negative logotype at the bottom. The tagline is "The unconventional, delivered." (approved).
 - The cover title text box needs an explicit line rule (`w:lineRule="auto"`), otherwise lines overlap in some editors.
 
 ## 7. Color in documents
@@ -76,42 +76,40 @@ Not in the template yet, but consistent with the brand's cursor resource and alr
 - **Source line:** "Source:" in Verdana 8 pt muted ink + link in `blue` Bold, below a procedure that comes from official vendor documentation.
 - **Diagrams:** drawn in the primary palette with Outfit, square corners, inserted as images at full text width.
 
-## 9. Open decisions — apply these fixes now, follow the template for everything else
+## 9. Brand decisions on the template
 
-The template itself has a few inconsistencies the brand team hasn't ruled on yet. Until they do, apply **D1, D3, D7, and D9** automatically in every client deliverable (they're accessibility or correctness fixes); for the rest, follow the template as-is and flag the gap in the delivery note.
+The brand team ruled on every open question in the original template (September 2026). All of these are already applied in `assets/templates/Sngular_Document_Template.docx`; the file is generated from the brand team's original by `scripts/make_templates.py` in the repository.
 
-| # | Topic | Template today | Applied fix |
-|---|---|---|---|
-| D1 | Blue | `#0085FF` (fails AA as small text on white, 3.62:1) | Use `#0070F6` (4.52:1) — **applied** |
-| D2 | Links and table headers | Styled with Heading 5, so they appear in the outline/TOC | Pending: a dedicated "Link" and "Table header" style |
-| D3 | Table first column | `blue` 9 pt, fails AA on `navy-light` rows | `navy` Bold 9 pt — **applied** |
-| D4 | Subtitle style | Arial 15 pt gray `#666666` (off-brand) | Pending: Verdana, navy or blue, or remove the style |
-| D5 | Quotes (Heading 6) | Italic | Pending: confirm quotes are the one exception to "no italics" |
-| D6 | Footer | Page number only | Applying the slide convention ("Copyright © Sngular…") until confirmed |
-| D7 | Normal size | Not set explicitly (Word defaults to 10 pt) | Set 10 pt explicitly — **applied** |
-| D8 | Margins | Negative indents / invalid OOXML decimal values | Pending: real 1.8 cm margins |
-| D9 | Cover page | ~27 empty Heading 1 paragraphs (pollutes navigation pane) | Single page break — **applied** |
-| D10 | Back cover tagline | "The unconventional, delivered." (not an approved message) | Pending confirmation, or add to `voice-and-messaging.md` |
-| D11 | Paper size | A4 only | Pending: a Letter version for North American clients |
+| # | Topic | Decision |
+|---|---|---|
+| D1 | Blue | `#0070F6` everywhere (the original used `#0085FF`, which fails AA as small text on white) |
+| D2 | Links and table headers | Keep Heading 5 for both |
+| D3 | Table first column | `navy` Bold 9 pt (the original's `blue` failed AA on `navy-light` rows) |
+| D4 | Subtitle style | Verdana 15 pt `blue` (was Arial, gray `#666666`) |
+| D5 | Quotes (Heading 6) | Italic stays: quotes are the one exception to "no italics" |
+| D6 | Footer | "Copyright © Sngular. All rights reserved." on the left, page number on the right |
+| D7 | Normal size | 10 pt, set explicitly |
+| D8 | Margins | Real 1.8 cm side margins, no negative indents |
+| D9 | Cover page | A single page break (was 27 empty Heading 1 paragraphs) |
+| D10 | Back cover tagline | "The unconventional, delivered." approved (see `voice-and-messaging.md`) |
+| D11 | Paper size | A4 is the default. A US Letter version is in review; until it's approved, use A4 and mention it in the delivery note for US and Canada clients |
 
 ## 10. What's inside the template file
 
-`assets/templates/Sngular_Document_Template.docx` is the brand team's raw template, in Spanish. Know its parts before editing it:
+`assets/templates/Sngular_Document_Template.docx` has every decision in section 9 applied, but its placeholders and usage guide are still the brand team's, in Spanish. Know its parts before editing it:
 
 | Part | Where it lives | What to do |
 |---|---|---|
 | Cover | First-page header (navy artwork + text boxes "Pon el título aquí" and "Día / Mes / Año") | Replace both placeholders with the real title and date |
 | Page header (from page 2) | Default header, placeholder "Título del Documento" | Replace with the real document title |
-| Footer | Default footer, page number only | Add "Copyright © Sngular. All rights reserved." on the left (D6) |
-| Cover spacer | 27 empty Heading 1 paragraphs at the start of the body | Replace with a single page break (D9) |
+| Footer | Default footer, copyright line and page number | Keep as is |
 | "Guía rápida" | Body page 2: usage guide, color swatches, style-picker screenshot | Delete entirely |
 | Style samples | Body: "Estilos de título y párrafos", lorem ipsum per heading, sample table under "Tablas" | Delete the text; keep the table only as a starting point for your own tables |
-| Back cover | Last page of the body, after the final page break ("The unconventional, delivered.") | Keep; confirm the tagline (D10) |
+| Back cover | Last page of the body, after the final page break ("The unconventional, delivered.") | Keep as is |
 
 Also:
 
-- The raw file still has `#0085FF` in Heading 5, the table header, and the first column. Replace it everywhere (styles and direct formatting) as D1 and D3 describe.
-- Normal has no explicit size; set it to 10 pt (D7).
+- Older copies of the template people have saved (with `#0085FF`, 2.54 cm margins, or empty headings before the guide) are outdated: always start from this file.
 - The document language is set to Spanish (`es`). For an English document, change it so spell check works for the recipient.
 - For Google Docs, upload the finished .docx to Drive and open it with Google Docs; check that the cover and header images survived the conversion.
 
@@ -122,8 +120,7 @@ Also:
 3. **Write the cover:** title (≤30 characters for two lines), date or event, in Outfit Light on navy.
 4. **Use only template styles** for every heading level and Normal — no manual font sizes or ad hoc colors.
 5. **Tables and lists** follow sections 4–5 above exactly; don't invent new table styles.
-6. **Apply the D1/D3/D7/D9 fixes** regardless of what the raw template does.
-7. **Run the checklist** below before delivering.
+6. **Run the checklist** below before delivering.
 
 ## Document types
 
@@ -140,11 +137,11 @@ Also:
 - [ ] Built from the template: cover, header, footer, back cover in place (or, if the template was unavailable, rebuilt from this reference's styles and flagged in the delivery note).
 - [ ] Only template styles; no manual font sizes or colors in the body.
 - [ ] Verdana in the body, Outfit Light only on the covers.
-- [ ] Emphasis in Verdana Bold; no underline or italic emphasis (quotes excepted, pending D5).
+- [ ] Emphasis in Verdana Bold; no underline or italic emphasis (quotes in Heading 6 excepted).
 - [ ] Tables: `blue` (#0070F6) header with white text, zebra rows, white cell borders, `navy` Bold first column.
 - [ ] Only `navy`, `navy-light`, `blue`, `white`. No `#4A94FF`, `#F9FBFD`, or accent colors.
 - [ ] Header shows the real document title; cover title fits in two lines.
 - [ ] No lorem ipsum, no leftover template instructions or style samples.
 - [ ] Placeholders to confirm are clearly marked.
 - [ ] Single language throughout.
-- [ ] D1, D3, D7, D9 fixes applied even if the raw template still has the old values.
+- [ ] No `#0085FF` anywhere (it comes from outdated copies of the template or pasted content).

@@ -17,6 +17,7 @@ Sngular is a *next-generation technology partner*: unconventional, approachable 
 - "Best place to grow."
 - "This is just the beginning of what we can create."
 - "The cursor is an idea that wants to grow big."
+- "The unconventional, delivered." (closing tagline on the document back cover)
 - Pillars: **"Best Place To Grow" Culture** (attracting and retaining talent), **"We always deliver" Commitment** (customer satisfaction and loyalty), and **"Adaptive Advantage" Strength** (agility and continuous learning).
 - "One Sngular, Multiple Studios": an ecosystem of specialized Studios, Chapters, and Teams.
 - Services: Software Development, Data & AI, Cloud Integration, Strategic Design, Cybersecurity, Hyper Automation & Low Code, Immersive Experiences, Help desk.

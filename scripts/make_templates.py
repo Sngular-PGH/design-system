@@ -1,17 +1,27 @@
-"""Build draft Sngular document templates from the brand team's raw template.
+"""Build the Sngular document templates from the brand team's original file.
 
-Usage: python3 scripts/make_template_drafts.py <source.docx> <out_dir>   (needs Pillow)
+Usage: python3 scripts/make_templates.py   (needs Pillow: pip install pillow)
 
-Applies D1, D3, D7, D8, D9 to an A4 copy, and additionally D11 (US Letter) to a
-second copy. The original file is never modified.
+Reads templates/source/Sngular_Document_Template.original.docx (never modified) and
+writes:
+  skills/sngular-design/assets/templates/Sngular_Document_Template.docx   A4, official
+  drafts/templates/Sngular_Document_Template_Letter.docx                  US Letter, draft
+
+Applied to both: D1, D3, D4, D6, D7, D8, D9 (see references/documents.md, section 9).
+Letter (D11) additionally resizes the page and fits the cover art without cropping.
 """
 import io, re, sys, zipfile
 from PIL import Image
 
-SRC, OUT_DIR = sys.argv[1], sys.argv[2]
+ROOT = __import__("os").path.join(__import__("os").path.dirname(__file__), "..")
+SRC = f"{ROOT}/templates/source/Sngular_Document_Template.original.docx"
+OUT_A4 = f"{ROOT}/skills/sngular-design/assets/templates/Sngular_Document_Template.docx"
+OUT_LETTER = f"{ROOT}/drafts/templates/Sngular_Document_Template_Letter.docx"
 
 OLD_BLUE, NEW_BLUE = "0085ff", "0070F6"
 NAVY = "061B2B"
+ART_NAVY = (0x0B, 0x1A, 0x29)                 # background colour of the cover artwork
+COPYRIGHT = "Copyright © Sngular. All rights reserved."
 OLD_MARGIN, NEW_MARGIN = 1440, 1021          # twips: 2.54 cm -> 1.8 cm
 SHIFT = OLD_MARGIN - NEW_MARGIN              # 419 twips
 EMU_PER_TWIP = 635
@@ -177,21 +187,70 @@ def fit_table(doc, page):
     return re.sub(r"<w:tbl>.*?</w:tbl>", per_table, doc, flags=re.S)
 
 
+# ---- D4: Subtitle ----------------------------------------------------------
+def fix_subtitle(styles):
+    m = re.search(r'<w:style [^>]*w:styleId="Subtitle".*?</w:style>', styles, re.S)
+    st = m.group(0)
+    st = re.sub(r'<w:rFonts [^>]*/>', '<w:rFonts w:ascii="Verdana" w:cs="Verdana" w:eastAsia="Verdana" w:hAnsi="Verdana"/>', st)
+    st = re.sub(r'<w:color w:val="666666"/>', f'<w:color w:val="{NEW_BLUE}"/>', st)
+    assert "Verdana" in st and NEW_BLUE in st
+    return styles[: m.start()] + st + styles[m.end():]
+
+
+# ---- D6: footer ------------------------------------------------------------
+def fix_footer(ftr, page):
+    """Copyright on the left, page number on the right (right tab at the text edge)."""
+    text_w = page[0] - 2 * NEW_MARGIN
+    small = '<w:rPr><w:sz w:val="16"/><w:szCs w:val="16"/></w:rPr>'
+    m = re.search(r"(<w:p [^>]*>)<w:pPr>.*?</w:pPr>(.*?)</w:p>", ftr, re.S)
+    assert "PAGE" in m.group(2)
+    runs = re.sub(r"<w:rPr/>", small, m.group(2), count=1)
+    ppr = (f'<w:pPr><w:tabs><w:tab w:val="right" w:pos="{text_w}"/></w:tabs>'
+           '<w:ind w:left="0" w:right="0" w:firstLine="0"/><w:jc w:val="left"/><w:rPr/></w:pPr>')
+    lead = (f'<w:r>{small}<w:t xml:space="preserve">{COPYRIGHT}</w:t></w:r>'
+            f'<w:r>{small}<w:tab/></w:r>')
+    return ftr[: m.start()] + m.group(1) + ppr + lead + runs + "</w:p>" + ftr[m.end():]
+
+
 # ---- D11: Letter -----------------------------------------------------------
+def pad_art_left(data, art_w_emu):
+    """Widen full-page art on the left with its own navy, so it fills Letter width."""
+    im = Image.open(io.BytesIO(data)).convert("RGBA")
+    new_w = round(im.width * LETTER[0] * EMU_PER_TWIP / (art_w_emu * LETTER_SCALE))
+    canvas = Image.new("RGBA", (new_w, im.height), (*ART_NAVY, 255))
+    canvas.paste(im, (new_w - im.width, 0))
+    buf = io.BytesIO()
+    canvas.save(buf, "PNG", optimize=True)
+    return buf.getvalue()
+
+
+# Letter is wider and shorter than A4. To show the whole A4 artwork with no crop and no
+# distortion, scale it to the Letter height and align it right (the blue cursor edge stays
+# on the page edge); the art images are widened on the left with their own navy
+# (pad_art_left) so the page is still covered edge to edge.
+LETTER_SCALE = LETTER[1] / A4[1]
+LETTER_GAP = round(LETTER[0] * EMU_PER_TWIP - 7560000 * LETTER_SCALE)  # EMU, left strip
+
+
 def to_letter_fullbleed(x, cx_old, cy_old):
-    """Scale full-page art to Letter width; crop the top so the logo keeps its bottom margin."""
-    s = LETTER[0] * EMU_PER_TWIP / cx_old
-    cx_new, cy_new = round(cx_old * s), round(cy_old * s)
-    offset_v = round(LETTER[1] * EMU_PER_TWIP - s * A4[1] * EMU_PER_TWIP)
+    s = LETTER_SCALE
+    cx_new, cy_new = LETTER[0] * EMU_PER_TWIP, round(cy_old * s)
     x = x.replace(f'cx="{cx_old}" cy="{cy_old}"', f'cx="{cx_new}" cy="{cy_new}"')
-    x = re.sub(r'(<wp:positionV relativeFrom="page">\s*<wp:posOffset>)0(</wp:posOffset>)',
-               lambda m: f"{m.group(1)}{offset_v}{m.group(2)}", x)
-    return x, s, offset_v
+    x = re.sub(r'(<wp:positionH relativeFrom="page">\s*<wp:posOffset>)(-?\d+)(</wp:posOffset>)',
+               lambda m: f"{m.group(1)}{round(int(m.group(2)) * s)}{m.group(3)}", x)
+    return x
 
 
-def to_letter_cover_text(x, s, offset_v):
-    return re.sub(r'(<wp:positionV relativeFrom="paragraph">\s*<wp:posOffset>)(\d+)(</wp:posOffset>)',
-                  lambda m: f"{m.group(1)}{round(int(m.group(2)) * s + offset_v)}{m.group(3)}", x)
+def to_letter_cover_text(x):
+    """Move the cover text boxes with the artwork (scaled and shifted right)."""
+    s = LETTER_SCALE
+    left = NEW_MARGIN * EMU_PER_TWIP
+    top = 567 * EMU_PER_TWIP  # header distance
+    x = re.sub(r'(<wp:positionH relativeFrom="column">\s*<wp:posOffset>)(-?\d+)(</wp:posOffset>)',
+               lambda m: f"{m.group(1)}{round(LETTER_GAP + (left + int(m.group(2))) * s - left)}{m.group(3)}", x)
+    x = re.sub(r'(<wp:positionV relativeFrom="paragraph">\s*<wp:posOffset>)(-?\d+)(</wp:posOffset>)',
+               lambda m: f"{m.group(1)}{round((top + int(m.group(2))) * s - top)}{m.group(3)}", x)
+    return x
 
 
 def to_letter_header_logo(x):
@@ -221,6 +280,7 @@ def build(letter):
             x = fix_blue_xml(x)
         if n == "word/styles.xml":
             x = fix_normal_size(x)
+            x = fix_subtitle(x)
             x = shift_indents(x, skip_tables=False)
         if n == "word/numbering.xml":
             x = shift_indents(x, skip_tables=False)
@@ -233,24 +293,30 @@ def build(letter):
             x = fix_page(x, page)
             x = fit_table(round_decimals(x), page)
             if letter:
-                x, s, o = to_letter_fullbleed(x, 7560000, 10692000)
-                log.append(f"D11 back cover art scaled x{s:.4f}, top cropped {-o / 360000:.2f} cm")
+                x = to_letter_fullbleed(x, 7560000, 10692000)
         if re.match(r"word/(header|footer)\d\.xml", n):
             x = shift_indents(x, skip_tables=True)
             x = shift_column_anchors(x)
+            if n == "word/footer1.xml":
+                x = fix_footer(x, page)
             if letter and n == "word/header2.xml":
-                x, s, o = to_letter_fullbleed(x, 7560000, 11025495)
-                x = to_letter_cover_text(x, s, o)
-                log.append(f"D11 cover art scaled x{s:.4f}, top cropped {-o / 360000:.2f} cm")
+                x = to_letter_fullbleed(x, 7560000, 11025495)
+                x = to_letter_cover_text(x)
             if letter and n == "word/header1.xml":
                 x = to_letter_header_logo(x)
         x = round_decimals(x)
         parts[n] = x.encode("utf-8")
 
-    name = "Sngular_Document_Template_Letter.docx" if letter else "Sngular_Document_Template.docx"
-    out = f"{OUT_DIR}/{name}"
+    names = list(zin.namelist())
+    if letter:
+        for art in ("word/media/image10.png", "word/media/image6.png"):  # cover, back cover
+            parts[art] = pad_art_left(parts[art], 7560000)
+        log.append(f"D11 cover and back cover art scaled x{LETTER_SCALE:.4f} to the page height, "
+                   f"no crop; widened {LETTER_GAP / 360000:.2f} cm on the left with navy")
+
+    out = OUT_LETTER if letter else OUT_A4
     with zipfile.ZipFile(out, "w", zipfile.ZIP_DEFLATED) as z:
-        for n in zin.namelist():  # keep the original part order ([Content_Types].xml etc.)
+        for n in names:  # keep the original part order ([Content_Types].xml etc.)
             z.writestr(zin.getinfo(n), parts[n])
     print(out)
     for l in log:

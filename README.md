@@ -9,8 +9,9 @@ Repository for the Sngular design system (presentations, web, and apps) and the 
 | `design-system/` | Export of the **Sngular Design System**: `tokens.json`, `tokens.css`, brand guide (`README.md`), sections (`docs/`), React components (`components/`), official SVG logos, and the Outfit font. |
 | `skills/sngular-design/` | Source code of the **sngular-design** skill: `SKILL.md`, references, tokens, logos, font, and a contrast script. |
 | `dist/sngular-design.skill` | The packaged skill, ready to install. |
-| `drafts/templates/` | Proposed fixes to the document template, pending brand approval. Not part of the install. |
-| `scripts/` | Maintainer scripts: `build.js` (`npm run build` / `npm run check`) and `make_template_drafts.py`. |
+| `templates/source/` | The brand team's original document template, untouched. The skill's template is generated from it. |
+| `drafts/templates/` | The US Letter document template, in review. Not part of the install. |
+| `scripts/` | Maintainer scripts: `build.js` (`npm run build` / `npm run check`) and `make_templates.py` (`npm run templates`). |
 
 ## Source of truth
 
@@ -42,7 +43,7 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
   npx github:Sngular-PGH/design-system --force    # upgrade an existing install
   ```
 
-  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#v1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
+  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
 
 ## Licenses
 
