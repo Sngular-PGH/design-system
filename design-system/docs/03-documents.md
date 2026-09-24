@@ -32,11 +32,11 @@ Only `navy` (#061B2B), `navy-light` (#F2F3F4), `blue` (#0070F6), and `white`. No
 
 ## Cover and back cover
 
-Full-bleed `navy`, giant S cut by a `blue` cursor, negative logotype. Cover title in Outfit Light 24pt white (≤30 characters, two lines max); back cover carries the `S|` isotype and a closing tagline.
+Full-bleed `navy`, giant S cut by a `blue` cursor, negative logotype. Cover title in Outfit Light 24pt white (≤30 characters, two lines max); back cover carries the `S|` isotype and the tagline "The unconventional, delivered."
 
 ## Page setup
 
-A4 by default (Letter for US/Canada clients on request), 2.54cm margins, different first page for the cover.
+A4 by default (a US Letter version is in review), 1.8cm left and right margins and 2.54cm top and bottom, different first page for the cover. The footer carries "Copyright © Sngular. All rights reserved." and the page number.
 
 ## Document types
 
@@ -52,4 +52,4 @@ A4 by default (Letter for US/Canada clients on request), 2.54cm margins, differe
 
 Default to Google Docs when the piece stays internal; deliver .docx when the client asks for Word or the file leaves Google Workspace.
 
-Full build spec — every style, table rule, and the open brand-team decisions still pending on the template — lives in the Sngular Design skill's `references/documents.md`.
+Full build spec — every style, table rule, and the brand team's decisions on the template — lives in the Sngular Design skill's `references/documents.md`.

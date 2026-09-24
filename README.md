@@ -9,6 +9,9 @@ Repository for the Sngular design system (presentations, web, and apps) and the 
 | `design-system/` | Export of the **Sngular Design System**: `tokens.json`, `tokens.css`, brand guide (`README.md`), sections (`docs/`), React components (`components/`), official SVG logos, and the Outfit font. |
 | `skills/sngular-design/` | Source code of the **sngular-design** skill: `SKILL.md`, references, tokens, logos, font, and a contrast script. |
 | `dist/sngular-design.skill` | The packaged skill, ready to install. |
+| `templates/source/` | The brand team's original document template, untouched. The skill's template is generated from it. |
+| `drafts/templates/` | The US Letter document template, in review. Not part of the install. |
+| `scripts/` | Maintainer scripts: `build.js` (`npm run build` / `npm run check`) and `make_templates.py` (`npm run templates`). |
 
 ## Source of truth
 
@@ -40,7 +43,7 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
   npx github:Sngular-PGH/design-system --force    # upgrade an existing install
   ```
 
-  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#v1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
+  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
 
 ## Licenses
 
@@ -50,9 +53,6 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
 
 ## Updating from the Design System
 
-1. Export the artifact's files to `design-system/`. If you change the skill, repackage it into `dist/` so the zip's root folder is `sngular-design/`:
-
-   ```bash
-   (cd skills && rm -f ../dist/sngular-design.skill && zip -rq ../dist/sngular-design.skill sngular-design -x '*/evals/*' '*.DS_Store')
-   ```
-2. Create a commit and `git push`.
+1. Export the artifact's files to `design-system/`.
+2. Run `npm run build`. It copies the tokens, logos, and font from `design-system/` into the skill and repackages `dist/sngular-design.skill` (requires the `zip` command, available on macOS and Linux). `npm run check` only reports copies that are out of sync, without changing anything.
+3. Create a commit and `git push`.

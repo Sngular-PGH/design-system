@@ -12,6 +12,11 @@
   "engines": {
     "node": ">=16.7"
   },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "check": "node scripts/build.js --check",
+    "templates": "python3 scripts/make_templates.py"
+  },
   "license": "UNLICENSED",
   "private": true
 }
