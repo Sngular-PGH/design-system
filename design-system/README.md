@@ -2,7 +2,7 @@
 
 Sngular's design system for presentations, websites, and apps. It is the single source of truth for color, typography, spacing, logotypes, graphic resources, and components. It was built from the **Sngular Brand Book 2025**, the **2025 Editable Slide Guides and Templates**, and **sngular.com**. Anything not sourced from those is marked as *derived for UI*.
 
-> Usage priority: 1) presentations, 2) websites, 3) apps. Languages: Spanish and English. Theme: light only. Accessibility: WCAG 2.1 AA.
+> Usage priority: 1) presentations, 2) websites, 3) apps, 4) documents. Languages: Spanish and English. Theme: light only. Accessibility: WCAG 2.1 AA.
 
 ## Concept: the cursor
 
@@ -44,7 +44,7 @@ Semantic tokens (`surface`, `surface-alt`, `surface-inverse`, `ink`, `ink-invers
 
 ## Typography
 
-**Outfit** is the primary typeface, for everything. **Verdana** is the auxiliary one: only in documents a client or an external person will edit, or in environments without Outfit. Outfit is openly licensed (Google Fonts, OFL): it can be used in web and apps without restriction.
+**Outfit** is the primary typeface, for everything. **Verdana** is the auxiliary one: only in documents a client or an external person will edit (see the *Documents* section), or in environments without Outfit. Outfit is openly licensed (Google Fonts, OFL): it can be used in web and apps without restriction.
 
 | Style | Weight | Size / line-height | Use |
 |---|---|---|---|
@@ -121,4 +121,5 @@ Safe area on a 1920×1080 canvas: `slide-margin-x` (96px) on the sides and `slid
 
 - **Presentations:** follow the *Presentations* section (layouts and rules for the Google Slides templates).
 - **Web and apps:** follow the *Web and apps* section and use the components (`window.Sngular`, React 18).
+- **Documents:** follow the *Documents* section; always start from the official Sngular Document Template, never a blank file.
 - **Theme:** light only. Dark areas are made with `surface-inverse` (navy), not a dark mode.

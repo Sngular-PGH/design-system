@@ -32,7 +32,15 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
 ## Installing the skill
 
 - **Claude (claude.ai / desktop):** upload `dist/sngular-design.skill` in the skills section of settings. For an entire organization, an admin does this from the organization settings.
-- **Claude Code:** copy `skills/sngular-design/` to `.claude/skills/sngular-design/` (project) or `~/.claude/skills/sngular-design/` (personal).
+- **Claude Code:** run the installer (requires Node.js 16.7+), from the root of the project where you want the skill:
+
+  ```bash
+  npx github:Sngular-PGH/design-system            # this project: ./.claude/skills/sngular-design
+  npx github:Sngular-PGH/design-system --global   # all your projects: ~/.claude/skills/sngular-design
+  npx github:Sngular-PGH/design-system --force    # upgrade an existing install
+  ```
+
+  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#v1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
 
 ## Licenses
 
@@ -42,5 +50,9 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
 
 ## Updating from the Design System
 
-1. Export the artifact's files to `design-system/` and, if you change the skill, repackage it into `dist/`.
+1. Export the artifact's files to `design-system/`. If you change the skill, repackage it into `dist/` so the zip's root folder is `sngular-design/`:
+
+   ```bash
+   (cd skills && rm -f ../dist/sngular-design.skill && zip -rq ../dist/sngular-design.skill sngular-design -x '*/evals/*' '*.DS_Store')
+   ```
 2. Create a commit and `git push`.

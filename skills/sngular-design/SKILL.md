@@ -1,6 +1,6 @@
 ---
 name: sngular-design
-description: Designs presentations, websites, landing pages, app screens, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in Spanish and English.
+description: Designs presentations, websites, landing pages, app screens, written documents, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, a Word document, a Google Doc, a report, an SOW, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in Spanish and English.
 ---
 
 # Sngular Design
@@ -14,6 +14,7 @@ This skill turns any Sngular visual request into a piece that's faithful to the 
 | deck, slides, presentation, proposal, pitch, success story, kick-off, webinar | Presentation (priority 1) | `references/presentations.md` |
 | website, landing page, page, hero, newsletter, banner | Web (priority 2) | `references/web.md` |
 | app, screen, flow, dashboard, prototype | App (priority 3) | `references/apps.md` |
+| document, proposal, report, brief, memo, SOW, case study (written), Word, Google Docs | Document (priority 4) | `references/documents.md` |
 | social media post, cover, poster, invitation | Visual piece | `references/presentations.md` (resources) + `references/web.md` (formats) |
 | "check if this complies with the brand" | Review | the checklist in section 5 |
 
@@ -42,15 +43,16 @@ Follow the reference for the channel. The five decisions that matter most for th
 - **Presentation:** Slides type with the Sngular Design System. If PowerPoint or Google Slides is explicitly requested, deliver .pptx: Google Slides imports it without issue.
 - **Web, landing page, or mockup:** Design type with the Design System. If code is requested, HTML or React with `assets/tokens.css` and the component classes.
 - **App:** screens in Design. In code, the system's tokens and components.
+- **Document:** always start from a copy of `assets/templates/Sngular_Document_Template.docx` (see `references/documents.md`) — never a blank file. Default to Google Docs when the piece stays internal; deliver .docx when the client asks for Word or the file needs to leave Google Workspace. If the template file isn't available in this environment, build the document with the styles defined in `references/documents.md` (as named styles, not manual formatting) and say in the delivery note that the template wasn't used.
 - Always in **light theme**. Dark areas are made with `surface-inverse` (navy), not a dark mode.
 
 ## 5. Checklist before delivering
 
-Go through each point. If something fails, fix it before delivering; don't just flag it.
+Go through each point. If something fails, fix it before delivering; don't just flag it. For documents, use the checklist in `references/documents.md` instead (Verdana body text replaces the Outfit rule below).
 
 - [ ] Only colors from the system. Secondaries (`purple`, `green`, `red`) only in icons, lines, or details, never in titles, paragraphs, or boxes with text.
 - [ ] All text in Outfit (or Verdana if the environment doesn't have it) with the system's styles. Titles in navy, white, or blue.
-- [ ] AA contrast: `blue` as small text only on `white`, and no `green` text on a light background. You can check pairs with `python scripts/check_contrast.py 0070F6 F2F3F4`.
+- [ ] AA contrast: `blue` as small text only on `white`, and no `green` text on a light background. You can check pairs with `python3 scripts/check_contrast.py 0070F6 F2F3F4`.
 - [ ] Original logo, in the correct variant for the background and at its minimum size (36px in color, 24px solid). S| isotype top right on slides.
 - [ ] At most one special title and one or two highlights per composition.
 - [ ] Safe area respected, boxes aligned, no widows, no empty boxes.
