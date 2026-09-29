@@ -7,7 +7,7 @@ writes:
   skills/sngular-design/assets/templates/Sngular_Document_Template.docx   A4, official
   drafts/templates/Sngular_Document_Template_Letter.docx                  US Letter, draft
 
-Applied to both: D1, D3, D4, D6, D7, D8, D9 (see references/documents.md, section 9).
+Applied to both: D1, D3, D4, D6, D7, D8, D9, D12 (see references/documents.md, section 9).
 Letter (D11) additionally resizes the page and fits the cover art without cropping.
 """
 import io, re, sys, zipfile
@@ -212,11 +212,98 @@ def fix_footer(ftr, page):
     return ftr[: m.start()] + m.group(1) + ppr + lead + runs + "</w:p>" + ftr[m.end():]
 
 
+# ---- D12: cover and back cover fit the page, undistorted -----------------
+# The original groups are scaled unevenly (back cover 1.240 x 1.210, so its art and S|
+# are stretched 2.5% wide) and the cover art is overscaled 3% and shifted left. Rewrite
+# each full-page group with a 1:1 transform: the art at its native ratio covering the
+# page from the top-left corner, the other pictures at their native ratio, text boxes
+# where they were.
+ART_PX = (794, 1123)                          # cover / back cover artwork, A4 ratio
+FULLPAGE_CX = 7560000                         # extent of the full-page groups in the original
+
+
+def heal_art_edges(data):
+    """The artwork has a 1 px grey/white frame that shows as a hairline on the page edge:
+    replace it with the pixels just inside."""
+    im = Image.open(io.BytesIO(data)).convert("RGB")
+    w, h = im.size
+    px = im.load()
+    for x in range(w):
+        px[x, 0], px[x, h - 1] = px[x, 1], px[x, h - 2]
+    for y in range(h):
+        px[0, y], px[w - 1, y] = px[1, y], px[w - 2, y]
+    buf = io.BytesIO()
+    im.save(buf, "PNG", optimize=True)
+    return buf.getvalue()
+
+
+def image_sizes(parts, part_name):
+    """rId -> (px width, px height) for the images a part references."""
+    d, f = part_name.rsplit("/", 1)
+    rels = parts.get(f"{d}/_rels/{f}.rels", b"").decode("utf-8")
+    out = {}
+    for rid, target in re.findall(r'Id="(\w+)"[^>]*Target="(media/[^"]+)"', rels):
+        out[rid] = Image.open(io.BytesIO(parts[f"{d}/{target}"])).size
+    return out
+
+
+XFRM = re.compile(r'<a:off x="(-?\d+)" y="(-?\d+)"/><a:ext cx="(\d+)" cy="(\d+)"/>')
+
+
+def fit_fullpage_groups(x, sizes, page):
+    """Returns (xml, art height in EMU)."""
+    pw = page[0] * EMU_PER_TWIP
+    art_h = round(pw * ART_PX[1] / ART_PX[0])     # >= page height for A4: covers it
+    assert art_h >= page[1] * EMU_PER_TWIP
+
+    def child(cm, sx, sy, ox, oy):
+        c = cm.group(0)
+        m = XFRM.search(c)
+        x0, y0, w, h = (int(v) for v in m.groups())
+        X, Y, W, H = (x0 - ox) * sx, (y0 - oy) * sy, w * sx, h * sy
+        rid = re.search(r'r:embed="(\w+)"', c)
+        if rid and sizes.get(rid.group(1)) == ART_PX:
+            X, Y, W, H = 0, 0, pw, art_h
+        elif rid:
+            iw, ih = sizes[rid.group(1)]
+            nw = H * iw / ih
+            X, W = X + W - nw, nw                # keep the right edge: text hugs it
+        new = f'<a:off x="{round(X)}" y="{round(Y)}"/><a:ext cx="{round(W)}" cy="{round(H)}"/>'
+        return c[: m.start()] + new + c[m.end():]
+
+    def group(gm):
+        g = gm.group(0)
+        t = re.search(r'<wpg:grpSpPr><a:xfrm><a:off x="(-?\d+)" y="(-?\d+)"/><a:ext cx="(\d+)" cy="(\d+)"/>'
+                      r'<a:chOff x="(-?\d+)" y="(-?\d+)"/><a:chExt cx="(\d+)" cy="(\d+)"/></a:xfrm>', g)
+        gx, gy, gw, gh, ox, oy, cw, ch = (int(v) for v in t.groups())
+        assert (gx, gy) == (0, 0)
+        sx, sy = gw / cw, gh / ch
+        body = g[t.end():]
+        body = re.sub(r"<(pic:pic|wps:wsp)>.*?</\1>", lambda cm: child(cm, sx, sy, ox, oy), body, flags=re.S)
+        head = (f'<wpg:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{pw}" cy="{art_h}"/>'
+                f'<a:chOff x="0" y="0"/><a:chExt cx="{pw}" cy="{art_h}"/></a:xfrm>')
+        return g[: t.start()] + head + body
+
+    def anchor(am):
+        a = am.group(0)
+        if not re.search(rf'<wp:extent cx="{FULLPAGE_CX}" cy="\d+"/>', a):
+            return a
+        a = re.sub(r"<wpg:wgp>.*?</wpg:wgp>", group, a, flags=re.S)
+        a = re.sub(r'(<wp:positionH relativeFrom="page"><wp:posOffset>)-?\d+(</wp:posOffset>)', r"\g<1>0\2", a)
+        a = re.sub(r'<wp:extent cx="\d+" cy="\d+"/>', f'<wp:extent cx="{pw}" cy="{art_h}"/>', a)
+        if "<wpg:wgp>" not in a:                 # mc:Fallback: the art as one flat picture
+            a = XFRM.sub(f'<a:off x="0" y="0"/><a:ext cx="{pw}" cy="{art_h}"/>', a)
+        return a
+
+    x = re.sub(r"<wp:anchor [^>]*>.*?</wp:anchor>", anchor, x, flags=re.S)
+    return x, art_h
+
+
 # ---- D11: Letter -----------------------------------------------------------
-def pad_art_left(data, art_w_emu):
+def pad_art_left(data):
     """Widen full-page art on the left with its own navy, so it fills Letter width."""
     im = Image.open(io.BytesIO(data)).convert("RGBA")
-    new_w = round(im.width * LETTER[0] * EMU_PER_TWIP / (art_w_emu * LETTER_SCALE))
+    new_w = round(im.width * LETTER[0] * EMU_PER_TWIP / (A4_W_EMU * LETTER_SCALE))
     canvas = Image.new("RGBA", (new_w, im.height), (*ART_NAVY, 255))
     canvas.paste(im, (new_w - im.width, 0))
     buf = io.BytesIO()
@@ -228,17 +315,34 @@ def pad_art_left(data, art_w_emu):
 # distortion, scale it to the Letter height and align it right (the blue cursor edge stays
 # on the page edge); the art images are widened on the left with their own navy
 # (pad_art_left) so the page is still covered edge to edge.
+A4_W_EMU = A4[0] * EMU_PER_TWIP
 LETTER_SCALE = LETTER[1] / A4[1]
-LETTER_GAP = round(LETTER[0] * EMU_PER_TWIP - 7560000 * LETTER_SCALE)  # EMU, left strip
+LETTER_GAP = round(LETTER[0] * EMU_PER_TWIP - A4_W_EMU * LETTER_SCALE)  # EMU, left strip
 
 
-def to_letter_fullbleed(x, cx_old, cy_old):
+def to_letter_fullbleed(x, art_h):
+    """Scale the A4 full-page groups (already 1:1, see D12) uniformly to the Letter height."""
     s = LETTER_SCALE
-    cx_new, cy_new = LETTER[0] * EMU_PER_TWIP, round(cy_old * s)
-    x = x.replace(f'cx="{cx_old}" cy="{cy_old}"', f'cx="{cx_new}" cy="{cy_new}"')
-    x = re.sub(r'(<wp:positionH relativeFrom="page">\s*<wp:posOffset>)(-?\d+)(</wp:posOffset>)',
-               lambda m: f"{m.group(1)}{round(int(m.group(2)) * s)}{m.group(3)}", x)
-    return x
+    lw, lh = LETTER[0] * EMU_PER_TWIP, round(art_h * s)
+    art = f'<a:off x="0" y="0"/><a:ext cx="{A4_W_EMU}" cy="{art_h}"/>'
+    art_new = f'<a:off x="0" y="0"/><a:ext cx="{lw}" cy="{lh}"/>'
+
+    def xfrm(m):
+        if m.group(0) == art:
+            return art_new
+        X, Y, W, H = (int(v) for v in m.groups())
+        return (f'<a:off x="{round(LETTER_GAP + X * s)}" y="{round(Y * s)}"/>'
+                f'<a:ext cx="{round(W * s)}" cy="{round(H * s)}"/>')
+
+    def anchor(am):
+        a = am.group(0)
+        if f'<wp:extent cx="{A4_W_EMU}" cy="{art_h}"/>' not in a:
+            return a
+        a = a.replace(f'<wp:extent cx="{A4_W_EMU}" cy="{art_h}"/>', f'<wp:extent cx="{lw}" cy="{lh}"/>')
+        a = XFRM.sub(xfrm, a)  # the group's own off/ext has the art's rect: it becomes the page
+        return a.replace(f'<a:chExt cx="{A4_W_EMU}" cy="{art_h}"/>', f'<a:chExt cx="{lw}" cy="{lh}"/>')
+
+    return re.sub(r"<wp:anchor [^>]*>.*?</wp:anchor>", anchor, x, flags=re.S)
 
 
 def to_letter_cover_text(x):
@@ -270,8 +374,11 @@ def build(letter):
         if n.endswith(".png"):
             new, k = recolor_png(data)
             if k:
-                parts[n] = new
                 log.append(f"D1 {n}: {k} px recolored")
+            if Image.open(io.BytesIO(new)).size == ART_PX:
+                new = heal_art_edges(new)
+                log.append(f"D12 {n}: 1 px frame removed")
+            parts[n] = new
             continue
         if not n.endswith(".xml"):
             continue
@@ -292,16 +399,21 @@ def build(letter):
             x = shift_column_anchors(x)
             x = fix_page(x, page)
             x = fit_table(round_decimals(x), page)
+            x, art_h = fit_fullpage_groups(x, image_sizes(parts, n), A4)
+            log.append(f"D12 {n}: full-page art 1:1 at {A4_W_EMU / 360000:.2f} x {art_h / 360000:.2f} cm")
             if letter:
-                x = to_letter_fullbleed(x, 7560000, 10692000)
+                x = to_letter_fullbleed(x, art_h)
         if re.match(r"word/(header|footer)\d\.xml", n):
             x = shift_indents(x, skip_tables=True)
             x = shift_column_anchors(x)
             if n == "word/footer1.xml":
                 x = fix_footer(x, page)
-            if letter and n == "word/header2.xml":
-                x = to_letter_fullbleed(x, 7560000, 11025495)
-                x = to_letter_cover_text(x)
+            if n == "word/header2.xml":
+                x, art_h = fit_fullpage_groups(x, image_sizes(parts, n), A4)
+                log.append(f"D12 {n}: full-page art 1:1 at {A4_W_EMU / 360000:.2f} x {art_h / 360000:.2f} cm")
+                if letter:
+                    x = to_letter_fullbleed(x, art_h)
+                    x = to_letter_cover_text(x)
             if letter and n == "word/header1.xml":
                 x = to_letter_header_logo(x)
         x = round_decimals(x)
@@ -310,7 +422,7 @@ def build(letter):
     names = list(zin.namelist())
     if letter:
         for art in ("word/media/image10.png", "word/media/image6.png"):  # cover, back cover
-            parts[art] = pad_art_left(parts[art], 7560000)
+            parts[art] = pad_art_left(parts[art])
         log.append(f"D11 cover and back cover art scaled x{LETTER_SCALE:.4f} to the page height, "
                    f"no crop; widened {LETTER_GAP / 360000:.2f} cm on the left with navy")
 

@@ -62,6 +62,7 @@ Headings keep with the next paragraph and don't split across pages. Titles are a
 - **Cover:** full-bleed `navy` artwork with the outlined giant S cut by a `blue` cursor on the right edge and the negative logotype bottom left. Title next to the white `S|` isotype in Outfit Light 24 pt `white`; below it, a date or subtitle line in Outfit Light 12 pt `white`. Keep the title to about 30 characters so it fits on two lines. Build the cover as a single page break (D9), not a stack of empty Heading 1 paragraphs — those pollute the navigation pane and table of contents.
 - **Back cover:** full-bleed `navy`, `S|` isotype with the closing tagline in Outfit Light 22 pt `white`, negative logotype at the bottom. The tagline is "The unconventional, delivered." (approved).
 - The cover title text box needs an explicit line rule (`w:lineRule="auto"`), otherwise lines overlap in some editors.
+- **Cover and back cover fit (D12):** when you build or change an A4 template, the full-page artwork is scaled uniformly (same factor on both axes) to the page width, placed at the page's top-left corner, and covers the whole page. The group holding it uses a 1:1 transform (`ext` equal to `chExt`), so no child gets stretched. Never fix a gap by stretching the image to the page: pad or crop instead. Check it in Word and Google Docs: navy edge to edge, no light hairline on any edge, the whole S and the logo visible.
 
 ## 7. Color in documents
 
@@ -93,6 +94,7 @@ The brand team ruled on every open question in the original template (September 
 | D9 | Cover page | A single page break (was 27 empty Heading 1 paragraphs) |
 | D10 | Back cover tagline | "The unconventional, delivered." approved (see `voice-and-messaging.md`) |
 | D11 | Paper size | A4 is the default. A US Letter version is in review; until it's approved, use A4 and mention it in the delivery note for US and Canada clients |
+| D12 | Cover and back cover fit | The artwork keeps its own proportions (794 × 1123 px, the A4 ratio) and covers the page from the top-left corner: never stretched, squashed, or shifted. The `S|` isotype keeps its proportions too. The original stretched the back cover 2.5% wide and overscaled the cover 3% |
 
 ## 10. What's inside the template file
 
