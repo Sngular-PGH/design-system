@@ -43,7 +43,7 @@ Components: load React 18, `design-system/components/bundle.css`, and `design-sy
   npx github:Sngular-PGH/design-system --force    # upgrade an existing install
   ```
 
-  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#1.0.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
+  To install a specific version, append a tag: `npx github:Sngular-PGH/design-system#1.1.0`. Alternatively, copy `skills/sngular-design/` to either location by hand.
 
 ## Licenses
 

@@ -9,7 +9,7 @@ It's generated with `npm run templates`, from the brand team's original in `temp
 It has the same styles and decisions as the official A4 template (see `skills/sngular-design/references/documents.md`, section 9), plus:
 
 - Page size 21.59 × 27.94 cm, with the same 1.8 cm side margins.
-- The cover and back cover keep the whole artwork: nothing is cropped or stretched. Letter is wider and shorter than A4, so the art is scaled to the page height (94%) and aligned right, keeping the blue edge on the page edge. The 1.8 cm strip left over on the left is filled with the artwork's own navy.
+- The cover and back cover keep the whole artwork: nothing is cropped or stretched (D12 applies to both sizes). Letter is wider and shorter than A4, so the art is scaled to the page height (94%) and aligned right, keeping the blue edge on the page edge. The 1.8 cm strip left over on the left is filled with the artwork's own navy.
 - The cover title, date, and header logo move with the artwork and the wider page.
 
 ## How to review
