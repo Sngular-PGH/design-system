@@ -17,6 +17,10 @@
     "check": "node scripts/build.js --check",
     "templates": "python3 scripts/make_templates.py"
   },
+  "author": "Carlos Zaragoza <carlos.zaragoza@sngular.com>",
+  "maintainers": [
+    "Carlos Zaragoza <carlos.zaragoza@sngular.com>"
+  ],
   "license": "UNLICENSED",
   "private": true
 }

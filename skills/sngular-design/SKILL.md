@@ -1,6 +1,9 @@
 ---
 name: sngular-design
 description: Designs presentations, websites, landing pages, app screens, written documents, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, a Word document, a Google Doc, a report, an SOW, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in Spanish and English.
+metadata:
+  author: Carlos Zaragoza <carlos.zaragoza@sngular.com>
+  owner: Carlos Zaragoza <carlos.zaragoza@sngular.com>
 ---
 
 # Sngular Design
