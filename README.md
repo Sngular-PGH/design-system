@@ -13,6 +13,10 @@ Repository for the Sngular design system (presentations, web, and apps) and the 
 | `drafts/templates/` | The US Letter document template, in review. Not part of the install. |
 | `scripts/` | Maintainer scripts: `build.js` (`npm run build` / `npm run check`) and `make_templates.py` (`npm run templates`). |
 
+## Author and owner
+
+Carlos Zaragoza ([carlos.zaragoza@sngular.com](mailto:carlos.zaragoza@sngular.com)) is the author and owner of this repository and the sngular-design skill. Send questions and change requests to Carlos, or open an issue.
+
 ## Source of truth
 
 The living system is the **Sngular Design System** artifact in Claude:
