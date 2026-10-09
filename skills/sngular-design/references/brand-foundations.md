@@ -2,7 +2,7 @@
 
 Copy of the Sngular Design System guide (2025 Brand Book). Exact values are in `../assets/tokens.json` and `../assets/tokens.css`.
 
-> Usage priority: 1) presentations, 2) websites, 3) apps. Languages: Spanish and English. Theme: light only. Accessibility: WCAG 2.1 AA.
+> Usage priority: 1) presentations, 2) websites, 3) apps. Languages: US English and US Spanish (Sngular USA). Theme: light only. Accessibility: WCAG 2.1 AA.
 
 ## Concept: the cursor
 
@@ -14,7 +14,7 @@ Sngular is a *next-generation technology partner*: unconventional, technical, an
 
 - **Do:** short, affirmative sentences ("We don't just follow trends — we engineer the future"); concrete data (+1,300 people, +500 clients, 11 regions); action verbs; a single standout message per composition.
 - **Don't:** empty superlatives, stock advertising tone, exclamation marks, emojis, unexplained jargon.
-- **Bilingual:** Spanish and English. Spanish text runs ~20% longer: leave breathing room in boxes. Don't mix languages within the same piece, except for service names (Data & AI, Cloud Integration…).
+- **Bilingual, for Sngular USA:** US English (en-US) or US Spanish (es-US), in the language of the request. Both use US formats (2,450; $1.2M; Oct 7, 2026 / 7 de octubre de 2026; 10:42 AM) and imperial units where people expect them. Spanish text runs ~20% longer: leave breathing room in boxes. Don't mix languages within the same piece, except for service names (Data & AI, Cloud Integration…).
 - **Name:** always written **Sngular** in running text; `S|NGULAR` only as the logotype. For a service or sub-brand, use the written signature "by Sngular," never the logo with a hyphen.
 
 ## Color

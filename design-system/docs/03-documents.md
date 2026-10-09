@@ -36,7 +36,7 @@ Full-bleed `navy`, giant S cut by a `blue` cursor, negative logotype. Cover titl
 
 ## Page setup
 
-A4 by default (a US Letter version is in review), 1.8cm left and right margins and 2.54cm top and bottom, different first page for the cover. The footer carries "Copyright © Sngular. All rights reserved." and the page number.
+US Letter by default (Sngular USA; an A4 version exists for clients outside the US), 1.8cm (0.71in) left and right margins and 2.54cm (1in) top and bottom, different first page for the cover. The footer carries "Copyright © Sngular. All rights reserved." and the page number.
 
 ## Document types
 
