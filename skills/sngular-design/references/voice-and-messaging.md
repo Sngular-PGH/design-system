@@ -6,7 +6,7 @@ Sngular is a *next-generation technology partner*: unconventional, approachable 
 
 - **Do:** short sentences; provocative questions that put the client at the center ("Would you look for innovation in a 3,000-year-old business?"); action verbs; concrete, dated figures; real testimonials with name and title.
 - **Don't:** empty superlatives ("undisputed leader," "revolutionary"), unexplained jargon, advertising tone, excessive exclamation marks, emojis.
-- **Languages:** Spanish or English, depending on the request; never mix them within the same piece. Service names and English taglines ("Best place to grow," "We always deliver") can stay in English even in a Spanish-language piece.
+- **Languages:** US English or US Spanish, depending on the request; every piece is built for Sngular USA, so both use US formats (2,450; $1.2M; Oct 7, 2026 / 7 de octubre de 2026). Never mix them within the same piece. Service names and English taglines ("Best place to grow," "We always deliver") can stay in English even in a Spanish-language piece.
 - **The name:** "Sngular" in running text. `S|NGULAR` is only the logotype.
 
 ## Key messages (approved copy)

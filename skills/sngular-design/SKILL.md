@@ -1,6 +1,6 @@
 ---
 name: sngular-design
-description: Designs presentations, websites, landing pages, app screens, written documents, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, a Word document, a Google Doc, a report, an SOW, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in Spanish and English.
+description: Designs presentations, websites, landing pages, app screens, written documents, and visual pieces with the Sngular brand, following the Sngular Design System (Navy/Blue colors, Outfit typography, cursor, S|, selected text, special titles) and the 2025 Brand Book. Use this skill ALWAYS when someone at Sngular asks for a deck, slides, a client proposal, a success story, an executive presentation, a website, a landing page, a mockup, an app, a post, a Word document, a Google Doc, a report, an SOW, or any piece with the Sngular brand, even if they don't say "brand" or "design system," and also when they ask to review whether something complies with the Sngular brand. Works in US English and US Spanish, for Sngular USA.
 metadata:
   author: Carlos Zaragoza <carlos.zaragoza@sngular.com>
   owner: Carlos Zaragoza <carlos.zaragoza@sngular.com>
@@ -39,14 +39,14 @@ Follow the reference for the channel. The five decisions that matter most for th
 2. **A single brand gesture per composition.** Choose one: a `SpecialTitle` (S| + blue box), a couple of `Highlight`s (selected text), a cursor next to the photo, or the giant S. Never all at once. That way the resource stands out.
 3. **Brand typography at scale.** Outfit, with the system's styles (`display-1` 92/98, `heading-1` 48/52, `heading-2` 32/38 in blue, `paragraph` 20/30…). Titles always in a primary color.
 4. **Safe area.** In 16:9, 96px on the sides and 144px top and bottom, on a 1920×1080 canvas. The title sits flush with the top margin. Only photos may bleed off the edge.
-5. **Real content.** Use the messages and figures from `voice-and-messaging.md`, in the language of the request. Never use lorem ipsum in a delivery.
+5. **Real content.** Use the messages and figures from `voice-and-messaging.md`, in the language of the request (US English or US Spanish, with US formats). Never use lorem ipsum in a delivery.
 
 ## 4. Delivery formats
 
 - **Presentation:** Slides type with the Sngular Design System. If PowerPoint or Google Slides is explicitly requested, deliver .pptx: Google Slides imports it without issue.
 - **Web, landing page, or mockup:** Design type with the Design System. If code is requested, HTML or React with `assets/tokens.css` and the component classes.
 - **App:** screens in Design. In code, the system's tokens and components.
-- **Document:** always start from a copy of `assets/templates/Sngular_Document_Template.docx` (see `references/documents.md`) — never a blank file. Default to Google Docs when the piece stays internal; deliver .docx when the client asks for Word or the file needs to leave Google Workspace. If the template file isn't available in this environment, build the document with the styles defined in `references/documents.md` (as named styles, not manual formatting) and say in the delivery note that the template wasn't used.
+- **Document:** always start from a copy of `assets/templates/Sngular_Document_Template.docx` (US Letter, the default; `Sngular_Document_Template_A4.docx` only for clients outside the US; see `references/documents.md`) — never a blank file. Default to Google Docs when the piece stays internal; deliver .docx when the client asks for Word or the file needs to leave Google Workspace. If the template file isn't available in this environment, build the document with the styles defined in `references/documents.md` (as named styles, not manual formatting) and say in the delivery note that the template wasn't used.
 - Always in **light theme**. Dark areas are made with `surface-inverse` (navy), not a dark mode.
 
 ## 5. Checklist before delivering

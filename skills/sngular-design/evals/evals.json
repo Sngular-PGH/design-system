@@ -1,8 +1,23 @@
 {
   "skill_name": "sngular-design",
   "evals": [
-    {"id": 1, "prompt": "Make me an 8-slide presentation to pitch Sngular to a mid-sized bank that wants to launch a digital banking app. Write it in Spanish.", "expected_output": "16:9 deck with the Sngular Design System: navy cover, provocative question, B100 case (Challenge/Solution/Results), dated figures, pillars, closing with business@sngular.com. A single special title, 1–2 highlights, safe area respected, no secondary colors in text.", "files": []},
-    {"id": 2, "prompt": "Create a landing page for our Data & AI services, in English, with a contact form.", "expected_output": "Landing page in light theme: hero with Highlight or SpecialTitle, Stat, service cards, case with testimonial, form with visible labels, square blue primary button, navy footer with negative logotype.", "files": []},
-    {"id": 3, "prompt": "Review this slide: title in green on white, three purple boxes with paragraphs, and a stretched logo. Does it comply with the brand?", "expected_output": "Detects the 3 violations (accent color in title, accent-color boxes with text, distorted logo), cites the rule and the contrast, and proposes the fix using system tokens.", "files": []}
+    {
+      "id": 1,
+      "prompt": "Make me an 8-slide presentation to pitch Sngular USA to a mid-sized US regional bank that wants to launch a digital banking app. Write it in Spanish.",
+      "expected_output": "16:9 deck in US Spanish with the Sngular Design System: navy cover, provocative question, B100 case (Challenge/Solution/Results), dated figures in US formats, pillars, closing with business@sngular.com. A single special title, 1–2 highlights, safe area respected, no secondary colors in text.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create a landing page for our Data & AI services, in English, with a contact form.",
+      "expected_output": "Landing page in light theme: hero with Highlight or SpecialTitle, Stat, service cards, case with testimonial, form with visible labels, square blue primary button, navy footer with negative logotype.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review this slide: title in green on white, three purple boxes with paragraphs, and a stretched logo. Does it comply with the brand?",
+      "expected_output": "Detects the 3 violations (accent color in title, accent-color boxes with text, distorted logo), cites the rule and the contrast, and proposes the fix using system tokens.",
+      "files": []
+    }
   ]
 }

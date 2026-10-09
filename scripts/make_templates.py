@@ -4,10 +4,10 @@ Usage: python3 scripts/make_templates.py   (needs Pillow: pip install pillow)
 
 Reads templates/source/Sngular_Document_Template.original.docx (never modified) and
 writes:
-  skills/sngular-design/assets/templates/Sngular_Document_Template.docx   A4, official
-  drafts/templates/Sngular_Document_Template_Letter.docx                  US Letter, draft
+  skills/sngular-design/assets/templates/Sngular_Document_Template.docx      US Letter, the default
+  skills/sngular-design/assets/templates/Sngular_Document_Template_A4.docx   A4, for clients outside the US
 
-Applied to both: D1, D3, D4, D6, D7, D8, D9, D12 (see references/documents.md, section 9).
+Applied to both: D1, D3, D4, D6, D7, D8, D9, D12, D13 (D8 also puts the sample table inline) (see references/documents.md, section 9).
 Letter (D11) additionally resizes the page and fits the cover art without cropping.
 """
 import io, re, sys, zipfile
@@ -15,8 +15,9 @@ from PIL import Image
 
 ROOT = __import__("os").path.join(__import__("os").path.dirname(__file__), "..")
 SRC = f"{ROOT}/templates/source/Sngular_Document_Template.original.docx"
-OUT_A4 = f"{ROOT}/skills/sngular-design/assets/templates/Sngular_Document_Template.docx"
-OUT_LETTER = f"{ROOT}/drafts/templates/Sngular_Document_Template_Letter.docx"
+OUT_LETTER = f"{ROOT}/skills/sngular-design/assets/templates/Sngular_Document_Template.docx"
+OUT_A4 = f"{ROOT}/skills/sngular-design/assets/templates/Sngular_Document_Template_A4.docx"
+STYLE_PICKER_EN = f"{ROOT}/templates/source/style_picker_en.png"
 
 OLD_BLUE, NEW_BLUE = "0085ff", "0070F6"
 NAVY = "061B2B"
@@ -41,6 +42,14 @@ def snap(v):
 # ---- D1: blue -------------------------------------------------------------
 def fix_blue_xml(x):
     return re.sub(OLD_BLUE, NEW_BLUE, x, flags=re.I)
+
+
+EXCLUDED = ("4a94ff", "f9fbfd")                # never in documents (documents.md §7)
+
+
+def drop_excluded_colors(x):
+    """Any #4A94FF / #F9FBFD left outside tables (e.g. an empty heading's paragraph mark) becomes navy."""
+    return re.sub(rf'="({"|".join(EXCLUDED)})"', f'="{NAVY}"', x, flags=re.I)
 
 
 def recolor_png(data):
@@ -141,11 +150,12 @@ def shift_indents(x, skip_tables):
     if not skip_tables:
         return fix_region(x)
     parts, last = [], 0
-    for tm in re.finditer(r"<w:tbl>.*?</w:tbl>", x, re.S):
+    for tm in re.finditer(r"<w:tbl>.*?</w:tbl>|<w:txbxContent>.*?</w:txbxContent>", x, re.S):
         parts.append(fix_region(x[last: tm.start()]))
-        tbl = tm.group(0)
-        tbl = re.sub(r'<w:tblInd w:w="(-?[\d.]+)"', lambda m: f'<w:tblInd w:w="{snap(fnum(m.group(1)) + SHIFT)}"', tbl)
-        parts.append(tbl)  # cell indents are relative to the cell: leave them
+        blk = tm.group(0)
+        if blk.startswith("<w:tbl>"):
+            blk = re.sub(r'<w:tblInd w:w="(-?[\d.]+)"', lambda m: f'<w:tblInd w:w="{snap(fnum(m.group(1)) + SHIFT)}"', blk)
+        parts.append(blk)  # cell and text-box indents are relative to the cell or box: leave them
         last = tm.end()
     parts.append(fix_region(x[last:]))
     return "".join(parts)
@@ -182,6 +192,13 @@ def fit_table(doc, page):
         tbl = re.sub(r'<w:tblW w:w="[\d.]+"', f'<w:tblW w:w="{text_w}"', tbl)
         tbl = re.sub(r'<w:gridCol w:w="([\d.]+)"/>', lambda m: f'<w:gridCol w:w="{round(fnum(m.group(1)) * k)}"/>', tbl)
         tbl = re.sub(r'(<w:tcW w:w=")([\d.]+)(" w:type="dxa")', lambda m: f"{m.group(1)}{round(fnum(m.group(2)) * k)}{m.group(3)}", tbl)
+        # The original's sample table floats 420 twips (0.29 in) left of the text, so it
+        # sticks out past the margin: make it an inline table aligned with the text.
+        tbl = re.sub(r"<w:tblpPr [^>]*/>", "", tbl)
+        tbl = re.sub(r'<w:tblInd w:w="-?[\d.]+"', '<w:tblInd w:w="0"', tbl)
+        # Table-level borders were #4A94FF (excluded, documents.md §7); cells draw white ones.
+        tbl = re.sub(r'(<w:tblBorders>.*?</w:tblBorders>)', lambda m: re.sub(r'w:color="4a94ff"', 'w:color="FFFFFF"', m.group(1), flags=re.I), tbl, flags=re.S)
+        assert "tblpPr" not in tbl
         return tbl
 
     return re.sub(r"<w:tbl>.*?</w:tbl>", per_table, doc, flags=re.S)
@@ -195,6 +212,79 @@ def fix_subtitle(styles):
     st = re.sub(r'<w:color w:val="666666"/>', f'<w:color w:val="{NEW_BLUE}"/>', st)
     assert "Verdana" in st and NEW_BLUE in st
     return styles[: m.start()] + st + styles[m.end():]
+
+
+# ---- D13: English (US) ------------------------------------------------------
+# Sngular USA builds everything in English: the brand team's Spanish placeholders and
+# usage guide are translated run by run (formatting untouched), the proofing language
+# becomes en-US, and the guide's style-picker screenshot is swapped for an English one.
+ENGLISH = {
+    "Título del Documento Lorem ipsum dolor sit amet ": "Document title ",
+    "Pon un título aquí Lorem…": "Add your title here",
+    "Pon el título aquí": "Add your title here",
+    "Día / Mes / Año": "Month Day, Year",
+    "Guía rápida": "Quick guide",
+    "No empieces a usar esta plantilla hasta no haber leído con atención esta guía.":
+        "Read this guide carefully before you start using this template.",
+    "Esta plantilla tiene definidos ": "This template comes with predefined ",
+    "estilos de texto": "text styles",
+    " para que puedas componer tu documento de la mejor forma posible. No crees ni uses estilos que no estén incluidos en este documento.":
+        " so you can lay out your document the right way. Don't create or use styles that aren't in this document.",
+    "Cuando pegues texto de otro documento utiliza el atajo de teclado “Cmd+Shift+V” (para Mac) o “Ctrl+Shift+V” (en Windows). ":
+        "When you paste text from another document, use “Cmd+Shift+V” (Mac) or “Ctrl+Shift+V” (Windows) to paste without formatting. ",
+    "Utiliza sólo colores de la paleta personalizada para el relleno de tus textos y tablas:":
+        "Use only colors from the custom palette for text and table fills:",
+    "Para destacar textos dentro de párrafos utiliza la fuente ": "To emphasize text inside a paragraph, use ",
+    "Estilos de título y párrafos": "Heading and paragraph styles",
+    "Encabezado 1": "Heading 1",
+    "Estilo de título de las secciones.": "Section titles.",
+    "Encabezado 2": "Heading 2",
+    "Estilo de título de las subsecciones.": "Subsection titles.",
+    "Encabezado 3": "Heading 3",
+    "Estilo de título de los apartados.": "Topic titles.",
+    "Encabezado 4": "Heading 4",
+    "Estilo de título de los subapartados.": "Subtopic titles.",
+    "Encabezado 5": "Heading 5",
+    "Estilo de enlaces.": "Links.",
+    "Encabezado 6": "Heading 6",
+    "Estilo de citas.": "Quotes.",
+    "Texto de párrafo": "Paragraph text",
+    "Estilo de párrafos.": "Paragraphs.",
+    "Título de sección (encabezado 1)": "Section title (Heading 1)",
+    "Visitar enlace (encabezado 5)": "Visit link (Heading 5)",
+    "Subsección (Encabezado 2)": "Subsection (Heading 2)",
+    "Apartado (Encabezado 3)": "Topic (Heading 3)",
+    "Subapartado (Encabezado 4)": "Subtopic (Heading 4)",
+    "“Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.” (Encabezado 6)":
+        "“Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.” (Heading 6)",
+    "Tablas": "Tables",
+    "Escribe…": "Type here…",
+    "Nombre Columna": "Column name",
+    "Nombre Fila": "Row name",
+}
+SPANISH_MARKS = re.compile(r"[áéíóúñÁÉÍÓÚÑ¿¡]")
+
+
+def to_english(x):
+    """Returns (xml, runs translated). Fails loudly if Spanish text is left behind."""
+    count = 0
+
+    def run(m):
+        nonlocal count
+        text = m.group(2)
+        if text in ENGLISH:
+            count += 1
+            return f"{m.group(1)}{ENGLISH[text]}{m.group(3)}"
+        return m.group(0)
+
+    x = re.sub(r"(<w:t(?: [^>]*)?>)([^<]*)(</w:t>)", run, x)
+    left = [t for t in re.findall(r"<w:t(?: [^>]*)?>([^<]*)</w:t>", x) if SPANISH_MARKS.search(t)]
+    assert not left, f"untranslated Spanish text: {left}"
+    return x, count
+
+
+def set_language(x):
+    return re.sub(r'<w:lang w:val="es"/>', '<w:lang w:val="en-US"/>', x)
 
 
 # ---- D6: footer ------------------------------------------------------------
@@ -216,8 +306,9 @@ def fix_footer(ftr, page):
 # The original groups are scaled unevenly (back cover 1.240 x 1.210, so its art and S|
 # are stretched 2.5% wide) and the cover art is overscaled 3% and shifted left. Rewrite
 # each full-page group with a 1:1 transform: the art at its native ratio covering the
-# page from the top-left corner, the other pictures at their native ratio, text boxes
-# where they were.
+# page from the top-left corner, and the S| isotype, title, date, and tagline at the same
+# place relative to the art as in the original (the S| and the date left-aligned with the
+# logo), scaled with it.
 ART_PX = (794, 1123)                          # cover / back cover artwork, A4 ratio
 FULLPAGE_CX = 7560000                         # extent of the full-page groups in the original
 
@@ -256,18 +347,17 @@ def fit_fullpage_groups(x, sizes, page):
     art_h = round(pw * ART_PX[1] / ART_PX[0])     # >= page height for A4: covers it
     assert art_h >= page[1] * EMU_PER_TWIP
 
-    def child(cm, sx, sy, ox, oy):
+    def is_art(c):
+        rid = re.search(r'r:embed="(\w+)"', c)
+        return rid and sizes.get(rid.group(1)) == ART_PX
+
+    def child(cm, ax, ay, k):
         c = cm.group(0)
         m = XFRM.search(c)
         x0, y0, w, h = (int(v) for v in m.groups())
-        X, Y, W, H = (x0 - ox) * sx, (y0 - oy) * sy, w * sx, h * sy
-        rid = re.search(r'r:embed="(\w+)"', c)
-        if rid and sizes.get(rid.group(1)) == ART_PX:
-            X, Y, W, H = 0, 0, pw, art_h
-        elif rid:
-            iw, ih = sizes[rid.group(1)]
-            nw = H * iw / ih
-            X, W = X + W - nw, nw                # keep the right edge: text hugs it
+        # every child keeps its place relative to the art (S| left-aligned with the logo),
+        # scaled by the same factor as the art on both axes
+        X, Y, W, H = (x0 - ax) * k, (y0 - ay) * k, w * k, h * k
         new = f'<a:off x="{round(X)}" y="{round(Y)}"/><a:ext cx="{round(W)}" cy="{round(H)}"/>'
         return c[: m.start()] + new + c[m.end():]
 
@@ -275,11 +365,13 @@ def fit_fullpage_groups(x, sizes, page):
         g = gm.group(0)
         t = re.search(r'<wpg:grpSpPr><a:xfrm><a:off x="(-?\d+)" y="(-?\d+)"/><a:ext cx="(\d+)" cy="(\d+)"/>'
                       r'<a:chOff x="(-?\d+)" y="(-?\d+)"/><a:chExt cx="(\d+)" cy="(\d+)"/></a:xfrm>', g)
-        gx, gy, gw, gh, ox, oy, cw, ch = (int(v) for v in t.groups())
-        assert (gx, gy) == (0, 0)
-        sx, sy = gw / cw, gh / ch
+        assert (int(t.group(1)), int(t.group(2))) == (0, 0)
         body = g[t.end():]
-        body = re.sub(r"<(pic:pic|wps:wsp)>.*?</\1>", lambda cm: child(cm, sx, sy, ox, oy), body, flags=re.S)
+        art = next(cm.group(0) for cm in re.finditer(r"<pic:pic>.*?</pic:pic>", body, re.S) if is_art(cm.group(0)))
+        ax, ay, aw, ah = (int(v) for v in XFRM.search(art).groups())
+        assert abs(aw / ah - ART_PX[0] / ART_PX[1]) < 1e-3   # the art itself is undistorted in the source
+        k = pw / aw
+        body = re.sub(r"<(pic:pic|wps:wsp)>.*?</\1>", lambda cm: child(cm, ax, ay, k), body, flags=re.S)
         head = (f'<wpg:grpSpPr><a:xfrm><a:off x="0" y="0"/><a:ext cx="{pw}" cy="{art_h}"/>'
                 f'<a:chOff x="0" y="0"/><a:chExt cx="{pw}" cy="{art_h}"/></a:xfrm>')
         return g[: t.start()] + head + body
@@ -370,6 +462,10 @@ def build(letter):
     log = []
     page = LETTER if letter else A4
 
+    # D13: the guide's style-picker screenshot, in English
+    parts["word/media/image2.png"] = open(STYLE_PICKER_EN, "rb").read()
+    log.append("D13 word/media/image2.png: English style picker")
+
     for n, data in list(parts.items()):
         if n.endswith(".png"):
             new, k = recolor_png(data)
@@ -385,7 +481,12 @@ def build(letter):
         x = data.decode("utf-8")
         if n.startswith("word/"):
             x = fix_blue_xml(x)
+            x, k = to_english(x)
+            if k:
+                log.append(f"D13 {n}: {k} runs translated to English")
         if n == "word/styles.xml":
+            x = set_language(x)
+            log.append("D13 word/styles.xml: proofing language en-US")
             x = fix_normal_size(x)
             x = fix_subtitle(x)
             x = shift_indents(x, skip_tables=False)
@@ -399,6 +500,7 @@ def build(letter):
             x = shift_column_anchors(x)
             x = fix_page(x, page)
             x = fit_table(round_decimals(x), page)
+            x = drop_excluded_colors(x)
             x, art_h = fit_fullpage_groups(x, image_sizes(parts, n), A4)
             log.append(f"D12 {n}: full-page art 1:1 at {A4_W_EMU / 360000:.2f} x {art_h / 360000:.2f} cm")
             if letter:

@@ -1,6 +1,6 @@
 # Sngular documents (Word and Google Docs)
 
-Source: the official Sngular document template (`assets/templates/Sngular_Document_Template.docx`). Use this reference for proposals, guides, reports, SOWs, memos, and any deliverable in .docx or Google Docs. Color and logo rules still come from `brand-foundations.md`.
+Source: the official Sngular document template (`assets/templates/Sngular_Document_Template.docx`, US Letter; `Sngular_Document_Template_A4.docx` is the A4 version). Use this reference for proposals, guides, reports, SOWs, memos, and any deliverable in .docx or Google Docs. Color and logo rules still come from `brand-foundations.md`.
 
 > **Always start from the template.** Never build a document from a blank file: the cover, back cover, header, footer, and styles live in the template. If the template isn't available in this environment, build it from scratch as named Word/Docs styles with exactly the values in this reference (never manual formatting), and say in the delivery note that the template wasn't used.
 
@@ -14,8 +14,8 @@ Source: the official Sngular document template (`assets/templates/Sngular_Docume
 
 | Setting | Value |
 |---|---|
-| Paper | A4 (21 × 29.7 cm). A US Letter version is in review (D11) |
-| Margins | 1.8 cm left and right, 2.54 cm top and bottom (text area 17.4 cm wide) |
+| Paper | US Letter (8.5 × 11 in), the default for Sngular USA. A4 (21 × 29.7 cm) only for clients outside the US (D11) |
+| Margins | 1.8 cm (0.71 in) left and right, 2.54 cm (1 in) top and bottom (text area 7.08 in wide on Letter, 17.4 cm on A4) |
 | Header / footer distance | 1 cm |
 | First page | Different first page: the cover lives in the first-page header |
 
@@ -62,7 +62,7 @@ Headings keep with the next paragraph and don't split across pages. Titles are a
 - **Cover:** full-bleed `navy` artwork with the outlined giant S cut by a `blue` cursor on the right edge and the negative logotype bottom left. Title next to the white `S|` isotype in Outfit Light 24 pt `white`; below it, a date or subtitle line in Outfit Light 12 pt `white`. Keep the title to about 30 characters so it fits on two lines. Build the cover as a single page break (D9), not a stack of empty Heading 1 paragraphs — those pollute the navigation pane and table of contents.
 - **Back cover:** full-bleed `navy`, `S|` isotype with the closing tagline in Outfit Light 22 pt `white`, negative logotype at the bottom. The tagline is "The unconventional, delivered." (approved).
 - The cover title text box needs an explicit line rule (`w:lineRule="auto"`), otherwise lines overlap in some editors.
-- **Cover and back cover fit (D12):** when you build or change an A4 template, the full-page artwork is scaled uniformly (same factor on both axes) to the page width, placed at the page's top-left corner, and covers the whole page. The group holding it uses a 1:1 transform (`ext` equal to `chExt`), so no child gets stretched. Never fix a gap by stretching the image to the page: pad or crop instead. Check it in Word and Google Docs: navy edge to edge, no light hairline on any edge, the whole S and the logo visible.
+- **Cover and back cover fit (D12):** when you build or change an A4 template, the full-page artwork is scaled uniformly (same factor on both axes) to the page width, placed at the page's top-left corner, and covers the whole page. The group holding it uses a 1:1 transform (`ext` equal to `chExt`), so no child gets stretched. The `S|` isotype, title, date, and back-cover tagline keep their place **relative to the artwork**, not to the page, and scale with it: on the cover the `S|` and the date line up with the left edge of the logotype, and the title starts right after the `S|` bar at the same height. On the back cover the `S|` keeps its original place (not aligned with the logo) and the tagline starts right after the bar. Text inside these text boxes has no indent (`w:ind` left/right 0): the page-margin change never moves it. Never fix a gap by stretching the image to the page: pad or crop instead. Check it in Word and Google Docs: navy edge to edge, no light hairline on any edge, the whole S and the logo visible.
 
 ## 7. Color in documents
 
@@ -90,29 +90,40 @@ The brand team ruled on every open question in the original template (September 
 | D5 | Quotes (Heading 6) | Italic stays: quotes are the one exception to "no italics" |
 | D6 | Footer | "Copyright © Sngular. All rights reserved." on the left, page number on the right |
 | D7 | Normal size | 10 pt, set explicitly |
-| D8 | Margins | Real 1.8 cm side margins, no negative indents |
+| D8 | Margins | Real 1.8 cm side margins, no negative indents. The sample table is inline and aligned with the text (the original floated it 0.29 in past the left margin), and the template carries no `#4A94FF` (the original used it on table borders and an empty heading) |
 | D9 | Cover page | A single page break (was 27 empty Heading 1 paragraphs) |
 | D10 | Back cover tagline | "The unconventional, delivered." approved (see `voice-and-messaging.md`) |
-| D11 | Paper size | A4 is the default. A US Letter version is in review; until it's approved, use A4 and mention it in the delivery note for US and Canada clients |
-| D12 | Cover and back cover fit | The artwork keeps its own proportions (794 × 1123 px, the A4 ratio) and covers the page from the top-left corner: never stretched, squashed, or shifted. The `S|` isotype keeps its proportions too. The original stretched the back cover 2.5% wide and overscaled the cover 3% |
+| D11 | Paper size | US Letter is the default (Sngular USA). The cover art keeps its proportions: scaled to the page height and aligned right, with the strip left over filled with the artwork's own navy. A4 stays available for clients outside the US |
+| D12 | Cover and back cover fit | The artwork keeps its own proportions (794 × 1123 px, the A4 ratio) and covers the page from the top-left corner: never stretched, squashed, or shifted. The `S|` isotype keeps its proportions too. Overlays are placed relative to the artwork (cover `S|` and date left-aligned with the logotype) The original stretched the back cover 2.5% wide and overscaled the cover 3% |
+| D13 | Language | The template ships in US English: placeholders, the quick guide, and the style samples are translated, the style-picker screenshot is in English, and the proofing language is `en-US`. For a US Spanish document, use the same template, write the placeholders in Spanish, and set the proofing language to `es-US` |
 
 ## 10. What's inside the template file
 
-`assets/templates/Sngular_Document_Template.docx` has every decision in section 9 applied, but its placeholders and usage guide are still the brand team's, in Spanish. Know its parts before editing it:
+Both template files have every decision in section 9 applied, with US English placeholders. Know their parts before editing:
 
 | Part | Where it lives | What to do |
 |---|---|---|
-| Cover | First-page header (navy artwork + text boxes "Pon el título aquí" and "Día / Mes / Año") | Replace both placeholders with the real title and date |
-| Page header (from page 2) | Default header, placeholder "Título del Documento" | Replace with the real document title |
+| Cover | First-page header (navy artwork + text boxes "Add your title here" and "Month Day, Year") | Replace both placeholders with the real title and date (US format: October 7, 2026) |
+| Page header (from page 2) | Default header, placeholder "Document title" | Replace with the real document title |
 | Footer | Default footer, copyright line and page number | Keep as is |
-| "Guía rápida" | Body page 2: usage guide, color swatches, style-picker screenshot | Delete entirely |
-| Style samples | Body: "Estilos de título y párrafos", lorem ipsum per heading, sample table under "Tablas" | Delete the text; keep the table only as a starting point for your own tables |
+| "Quick guide" | Body page 2: usage guide, color swatches, style-picker screenshot | Delete entirely |
+| Style samples | Body: "Heading and paragraph styles", lorem ipsum per heading, sample table under "Tables" | Delete the text; keep the table only as a starting point for your own tables |
 | Back cover | Last page of the body, after the final page break ("The unconventional, delivered.") | Keep as is |
 
 Also:
 
+### Documents without a cover (brief / memo, meeting notes)
+
+The template's first page is the cover, so a document type without one (see *Document types* below) needs three edits to the copy before you write:
+
+1. **Turn off the different first page.** In the body's last `w:sectPr`, delete `<w:titlePg/>` and the two `headerReference` / `footerReference` entries with `w:type="first"`. Page 1 then uses the default header (document title + logotype) and footer (copyright + page number). In Word: *Layout › Margins › Custom Margins › Layout › uncheck "Different first page"*; in Google Docs: *Format › Headers & footers › uncheck "Different first page"*.
+2. **Delete the back cover:** the last page break and the group with "The unconventional, delivered." at the end of the body.
+3. **Delete the quick guide and the style samples**, as for any document (see the table above).
+
+Start the body with **Title** (the document name) and **Subtitle** (one line: the subject or the takeaway). For a memo, follow with To / From / Date lines in Normal, each label in Verdana Bold, then section headings in Heading 3 (Heading 1 is too big for one page). Build tables to section 5's spec; the template's sample table is only a starting point.
+
 - Older copies of the template people have saved (with `#0085FF`, 2.54 cm margins, or empty headings before the guide) are outdated: always start from this file.
-- The document language is set to Spanish (`es`). For an English document, change it so spell check works for the recipient.
+- The document language is US English (`en-US`). For a Spanish document, change it to US Spanish (`es-US`) in the styles and the body so spell check works for the reader.
 - For Google Docs, upload the finished .docx to Drive and open it with Google Docs; check that the cover and header images survived the conversion.
 
 ## 11. How to build a document (step by step)
@@ -145,5 +156,5 @@ Also:
 - [ ] Header shows the real document title; cover title fits in two lines.
 - [ ] No lorem ipsum, no leftover template instructions or style samples.
 - [ ] Placeholders to confirm are clearly marked.
-- [ ] Single language throughout.
+- [ ] A single language throughout (en-US or es-US), with US formats for dates, numbers, and currency.
 - [ ] No `#0085FF` anywhere (it comes from outdated copies of the template or pasted content).

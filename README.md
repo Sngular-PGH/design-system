@@ -9,8 +9,7 @@ Repository for the Sngular design system (presentations, web, and apps) and the 
 | `design-system/` | Export of the **Sngular Design System**: `tokens.json`, `tokens.css`, brand guide (`README.md`), sections (`docs/`), React components (`components/`), official SVG logos, and the Outfit font. |
 | `skills/sngular-design/` | Source code of the **sngular-design** skill: `SKILL.md`, references, tokens, logos, font, and a contrast script. |
 | `dist/sngular-design.skill` | The packaged skill, ready to install. |
-| `templates/source/` | The brand team's original document template, untouched. The skill's template is generated from it. |
-| `drafts/templates/` | The US Letter document template, in review. Not part of the install. |
+| `templates/source/` | The brand team's original document template, untouched. The skill's templates are generated from it: `Sngular_Document_Template.docx` (US Letter, the default) and `Sngular_Document_Template_A4.docx`, both with US English placeholders. |
 | `scripts/` | Maintainer scripts: `build.js` (`npm run build` / `npm run check`) and `make_templates.py` (`npm run templates`). |
 
 ## Author and owner
